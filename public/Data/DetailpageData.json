@@ -1,0 +1,139 @@
+{
+    "detailImg":[
+    {
+    "id": 1,
+    "src":
+      "https://images.unsplash.com/photo-1581273154768-0a9a16887d2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1086&q=80",
+    "alt": "제품 상세 이미지입니다."
+   },
+    {
+    "id": 2,
+    "src":
+      "https://images.unsplash.com/photo-1581273154768-0a9a16887d2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1086&q=80",
+    "alt": "제품 상세 이미지입니다."
+   },
+    {
+    "id": 3,
+    "src":
+      "https://images.unsplash.com/photo-1581273154768-0a9a16887d2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1086&q=80",
+    "alt": "제품 상세 이미지입니다."
+   }
+  ],
+
+  "detailMainTitle": ["shampoo & conditioner"],
+
+  "detailCost": ["7.5oz - $19.99"],
+
+  "detailExplanation":[
+    {
+        "id": 1,
+        "explanation":
+          "An intensive weekly deep conditioning treatment that helps nourish and hydrate dry, damaged, or otherwise lackluster hair."
+      },
+      {
+        "id": 2,
+        "explanation":
+          "A customizable formula that delivers an optimal blend of nutrients to help give your hair the moisture it needs while also providing an added boost of your selected hair goals."
+      },
+      {
+        "id": 3,
+        "explanation":
+          "Formulated with a hair-healthy blend of Japanese sake extract, argan oil, jojoba ester oil, and a custom blend of natural ingredients depending on your hair goals."
+      }
+  ],
+
+  "detailLogo":[
+    {
+        "src":
+          "https://www.functionofbeauty.com/images/homepage/v1/company-values/badges/1.png",
+        "alt": "로고 이미지입니다."
+      },
+    {
+        "src":
+          "https://www.functionofbeauty.com/images/homepage/v1/company-values/badges/2.png",
+        "alt": "로고 이미지입니다."
+      },
+    {
+        "src":
+          "https://www.functionofbeauty.com/images/homepage/v1/company-values/badges/3.png",
+        "alt": "로고 이미지입니다."
+      },
+    {
+        "src":
+          "https://www.functionofbeauty.com/images/homepage/v1/company-values/badges/4.png",
+        "alt": "로고 이미지입니다."
+      },
+    {
+        "src":
+          "https://www.functionofbeauty.com/images/homepage/v1/company-values/badges/5.png",
+        "alt": "로고 이미지입니다."
+      }
+  ],
+
+  "detailMoreInfo":[
+    {
+      "id": "1", 
+        "title": "INGREDIENTS",
+        "info": "All Function of Beauty products are formulated without sulfates, parabens, phthalates, mineral oils, or gluten, and are always certified vegan and cruelty-free. Our shampoos and conditioners can also be made silicone-free, dye-free, or fragrance-free, based on your preferences. We use more than 60 natural ingredients in our custom formulations to help you achieve your ultimate hair goals.",
+        "src": "https://images.unsplash.com/photo-1519735777090-ec97162dc266?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1115&q=80",
+        "alt": "상세 설명입니다."
+      },    
+    {
+      "id": "2",
+      "title": "RECOMMENDED USE",
+        "info": "AApply 1-2 pumps of shampoo to wet hair and massage into a lather. Rinse and repeat (if necessary). Follow with enough conditioner to coat your strands evenly from mid-shaft to ends, leaving it on for 1-2 minutes before rinsing it out thoroughly.",
+        "src": "https://images.unsplash.com/photo-1508759073847-9ca702cec7d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+        "alt": "상세 설명입니다."
+      },    
+    {
+      "id": "3",
+      "title": "GREAT FOR...",
+        "info": "The Function of Beauty shampoo and conditioner is recommended for all hair types as each product is specially formulated to address your unique hair goals and needs.",
+        "src": "https://images.unsplash.com/photo-1588514899099-e2df6951dde6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80",
+        "alt": "상세 설명입니다."
+      }
+  ],
+
+  "detailReview":[
+    {
+      "starRating": "★★★★★",
+      "name": "Tracey",
+      "text": "Such wonderful products. For the first time I purchased the leave in treatment which is fabulous.",
+      "hairProfile": "wavy, medium, dry",
+      "goal": "lengthen, deep condition, replenish hair, strengthen, fix split ends" ,
+      "fragrance": "cherry bl(awesome), strong"
+    },
+    {
+      "starRating": "★★★★★",
+      "name": "Tracey",
+      "text": "Such wonderful products. For the first time I purchased the leave in treatment which is fabulous.",
+      "hairProfile": "wavy, medium, dry",
+      "goal": "lengthen, deep condition, replenish hair, strengthen, fix split ends" ,
+      "fragrance": "cherry bl(awesome), strong"
+    },
+    {
+      "starRating": "★★★★★",
+      "name": "Tracey",
+      "text": "Such wonderful products. For the first time I purchased the leave in treatment which is fabulous.",
+      "hairProfile": "wavy, medium, dry",
+      "goal": "lengthen, deep condition, replenish hair, strengthen, fix split ends" ,
+      "fragrance": "cherry bl(awesome), strong"
+    },
+    {
+      "starRating": "★★★★★",
+      "name": "Tracey",
+      "text": "Such wonderful products. For the first time I purchased the leave in treatment which is fabulous.",
+      "hairProfile": "wavy, medium, dry",
+      "goal": "lengthen, deep condition, replenish hair, strengthen, fix split ends" ,
+      "fragrance": "cherry bl(awesome), strong"
+    },
+    {
+      "starRating": "★★★★★",
+      "name": "Tracey",
+      "text": "Such wonderful products. For the first time I purchased the leave in treatment which is fabulous.",
+      "hairProfile": "wavy, medium, dry",
+      "goal": "lengthen, deep condition, replenish hair, strengthen, fix split ends" ,
+      "fragrance": "cherry bl(awesome), strong"
+    }
+  ]
+}
