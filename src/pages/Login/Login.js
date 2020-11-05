@@ -32,7 +32,7 @@ const Login = () => {
       },
       fail: function (error) {
         alert(JSON.stringify(error));
-        console.log("erroe", error);
+        console.log("error", error);
       },
     });
   };
