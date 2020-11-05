@@ -9,11 +9,11 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 // import Cart from "./pages/Cart/Cart";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
-// import Mypage from "./pages/Mypage/Mypage";
-// import DetailPage from "./pages/Detailpage/Detailpage";
-// import Quiz from "./pages/Quiz/Quiz";
-// import Reviewpage from "./pages/Reviewpage/Reviewpage";
-// import Nav from "./components/Nav/Nav";
+import Mypage from "./pages/Mypage/Mypage";
+import DetailPage from "./pages/Detailpage/Detailpage";
+import Quiz from "./pages/Quiz/Quiz";
+import Reviewpage from "./pages/Reviewpage/Reviewpage";
+//import Nav from "./components/Nav/Nav";
 
 class Routes extends Component {
   render() {
