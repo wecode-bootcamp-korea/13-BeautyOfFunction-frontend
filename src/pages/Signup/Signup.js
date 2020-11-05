@@ -1,24 +1,48 @@
 /* eslint-disable prettier/prettier */
+<<<<<<< HEAD
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import styled from "styled-components";
 import {SJ_URL} from "../../config";
+=======
+import React, {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
+import {useForm} from "react-hook-form";
+import styled from "styled-components";
+>>>>>>> 435c966... Add: 소셜로그인 기능 추가
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+<<<<<<< HEAD
   function handleEmailInput(e) {
+=======
+  useEffect(() => {
+    console.log(email, password);
+  }, [email, password]);
+
+  function handleInput(e) {
+    console.log("email", e.target.value);
+>>>>>>> 435c966... Add: 소셜로그인 기능 추가
     setEmail(e.target.value);
   }
 
   const passwordInput = (e) => {
+<<<<<<< HEAD
+=======
+    console.log("password", e.target.value);
+>>>>>>> 435c966... Add: 소셜로그인 기능 추가
     return setPassword(e.target.value);
   };
 
   const signUp = () => {
+<<<<<<< HEAD
     fetch(`${SJ_URL}/account/signup`, {
+=======
+    fetch("http://10.58.7.186:8000/account/signup", {
+>>>>>>> 435c966... Add: 소셜로그인 기능 추가
       method: "POST",
       body: JSON.stringify({
         email,
@@ -31,6 +55,7 @@ const Signup = () => {
       });
   };
 
+<<<<<<< HEAD
   const valid = (item) => {
     let inputText = document.querySelector(`#${item}`);
     inputText.style.color = "#61c8b3";
@@ -74,6 +99,8 @@ const Signup = () => {
     handleInputChange(e);
   };
 
+=======
+>>>>>>> 435c966... Add: 소셜로그인 기능 추가
   const {register, handleSubmit, errors} = useForm();
 
   const onSubmit = (data) => {
@@ -86,6 +113,7 @@ const Signup = () => {
       <PwRequirements>
         <AccountTitle>Password strength requirements</AccountTitle>
         <PwConditions>
+<<<<<<< HEAD
           <ConditionList id="more8"> At least 8 characters</ConditionList>
 
           <ConditionList id="num">At least 1 number ( 0-9 )</ConditionList>
@@ -96,6 +124,16 @@ const Signup = () => {
           <ConditionList id="capital">
             At least 1 alphabet ( a-z )
           </ConditionList>
+=======
+          <ConditionList> At least 8 characters</ConditionList>
+
+          <ConditionList>At least 1 number ( 0-9 )</ConditionList>
+
+          <ConditionList>
+            At least 1 special character (e.g. !, @, #, $, %, -, &,*)
+          </ConditionList>
+          <ConditionList>At least 1 alphabet ( a-z )</ConditionList>
+>>>>>>> 435c966... Add: 소셜로그인 기능 추가
         </PwConditions>
       </PwRequirements>
 
@@ -106,7 +144,11 @@ const Signup = () => {
             name="email"
             type="email"
             placeholder="Email"
+<<<<<<< HEAD
             onChange={handleEmailInput}
+=======
+            onChange={handleInput}
+>>>>>>> 435c966... Add: 소셜로그인 기능 추가
             ref={register({
               required: "❗️Email is required",
               pattern: {
@@ -117,14 +159,21 @@ const Signup = () => {
           />
         </InputBox>
         {errors.email && <Required> {errors.email.message}</Required>}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 435c966... Add: 소셜로그인 기능 추가
         <InputBox>
           <PwBox
             autoComplete="off"
             name="password"
             type="password"
             placeholder="Password"
+<<<<<<< HEAD
             onChange={handlePassword}
+=======
+            onChange={passwordInput}
+>>>>>>> 435c966... Add: 소셜로그인 기능 추가
             ref={register({
               required: "❗️Password is required",
               pattern: {
@@ -155,7 +204,10 @@ const Title = styled.h1`
   font-size: 45px;
   font-weight: 400;
   text-align: center;
+<<<<<<< HEAD
   padding-right: 40px;
+=======
+>>>>>>> 435c966... Add: 소셜로그인 기능 추가
 `;
 
 const PwRequirements = styled.div`
@@ -236,8 +288,13 @@ const Button = styled.button`
   width: 440px;
   height: 46px;
   margin-top: 20px;
+<<<<<<< HEAD
   color: white;
   background-color: #61c8b3;
+=======
+  color: #c1cac8;
+  background-color: #e6ebea;
+>>>>>>> 435c966... Add: 소셜로그인 기능 추가
   border: 1px solid transparent;
   border-radius: 3px;
   letter-spacing: 2.5px;
