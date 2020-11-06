@@ -1,0 +1,180 @@
+{
+    "choices":[
+        {"id":1, "name": "deep condition"},
+        {"id":2, "name": "fix split ends"},
+        {"id":3, "name": "hydrate"},
+        {"id":4, "name": "replenish hair"},
+        {"id":5, "name": "strengthen"},
+        {"id":6, "name": "anti-aging"},
+        {"id":7, "name": "color protection"},
+        {"id":8, "name": "lengthen"},
+        {"id":9, "name": "thermal protection"},
+        {"id":10, "name": "volumize"},
+        {"id":11, "name": "anti-frizz"},
+        {"id":12, "name": "curl definition"},
+        {"id":13, "name": "nourish roots"},
+        {"id":14, "name": "shine"},
+        {"id":15, "name": "soothe scalp"},
+        {"id":16, "name": "straighten"},
+        {"id":17, "name": "oil control"}
+    ],
+
+    "hairType": [
+        {"type": "straight"
+        },
+        {"type": "wavy"
+        },
+        {"type": "curly"
+        },
+        {"type": "coily"
+        }
+    ],
+
+    "hairStructure":[
+        {"type":"fine"},
+        {"type":"medium"},
+        {"type":"coarse"}
+    ],
+
+    "scalpMoisture": [
+        {"type": "dry"},
+        {"type": "normal"},
+        {"type": "oily"}
+    ],
+
+    "inputComponentData": [
+        {"value": "hairType"},
+        {"value": "hairStructure"},
+        {"value": "scalpMoisture"}
+    ],
+
+ "fragrance": [
+     {"id": "1",
+      "type": "peach",
+      "text": "nude (p) each 🍑🍊"},
+     {"id": "2",
+      "type": "rose",
+      "text": "strike a (r)ose",
+      "img": "https://www.functionofbeauty.com/images/pink_rose_emoji.svg"
+    },
+     {"id": "3",
+      "type": "pear",
+      "text": "(pear) fection 🍐🍏"},
+     {"id": "4",
+      "tpye": "calyptus",
+      "text": "all (you) calyptus 🌿"},
+     {"id": "5",
+      "type": "lavender",
+      "text": "true l(o)vender",
+    "img": "https://www.functionofbeauty.com/images/lavender_emoji.png"
+    },
+     {"id": "6",
+      "type": "free",
+      "text": "fragrance free"}  
+ ], 
+
+ "strength": [
+     {"type": "light"},
+     {"type": "medium"},
+     {"type": "strong"}
+ ],
+
+ "nameImg": [
+     {"id":1,
+      "color_code": "#B8E8E6",
+      "color_image": "../../../../Images/Detail_color/nonbackground/Detail_blue1-removebg-preview.png"
+    },
+     {"id":2,
+      "color_code": "#F0CDA5",
+      "color_image": "../../../../Images/Detail_color/nonbackground/Detail_orange1-removebg-preview.png"
+    },
+     {"id":3,
+      "color_code": "#CDC8DF",
+      "color_image": "../../../../Images/Detail_color/nonbackground/Detail_purple1-removebg-preview.png"
+    },
+     {"id":4,
+      "color_code": "#EDE9E6",
+      "color_image": "../../../../Images/Detail_color/nonbackground/Detail_gray1-removebg-preview.png"
+    },
+     {"id":5,
+      "color_code": "#E9CBCC",
+      "color_image": "../../../../Images/Detail_color/nonbackground/Detail_pink1-removebg-preview.png"
+    },
+     {"id":6,
+      "color_code": "#D6E1CD",
+      "color_image": "../../../../Images/Detail_color/nonbackground/Detail_mint1-removebg-preview.png"
+    },
+     {"id":7,
+      "color_code": "#F7EECC",
+      "color_image": "../../../../Images/Detail_color/nonbackground/Detail_yellow1-removebg-preview.png"
+    },
+     {"id":8,
+      "color_code": "#ffffff",
+      "color_image": "../../../../Images/Detail_color/nonbackground/Detail_white1-removebg-preview.png"
+    }   
+ ], 
+
+ "size_options": [
+    {
+        "shampoo_image": "https://i.ibb.co/7SdXPVK/blue.png",
+        "conditioner_image": "https://i.ibb.co/7SdXPVK/bluegray.png",
+        "size_options": [
+            {
+                "id": 1,
+                "name": "16oz Shampoo 16oz Conditioner",
+                "price": "49.99"
+            },
+            {
+                "id": 2,
+                "name": "8oz Shampoo 8oz Conditioner",
+                "price": "39.99"
+            },
+            {
+                "id": 3,
+                "name": "8oz Shampoo 16oz Conditioner",
+                "price": "44.99"
+            },
+            {
+                "id": 4,
+                "name": "16oz Shampoo 8oz Conditioner",
+                "price": "44.99"
+            },
+            {
+                "id": 5,
+                "name": "16oz Shampoo",
+                "price": "39.99"
+            },
+            {
+                "id": 6,
+                "name": "16oz Conditioner",
+                "price": "39.99"
+            },
+            {
+                "id": 7,
+                "name": "8oz Shampoo",
+                "price": "29.99"
+            },
+            {
+                "id": 8,
+                "name": "8oz Conditioner",
+                "price": "29.99"
+            }
+        ]
+    }
+],
+
+"frequency_options": [
+    {
+        "id": 1,
+        "option": "every month"
+    },
+    {
+        "id": 2,
+        "option": "every 3 months"
+    },
+    {
+        "id": 3,
+        "option": "every 6 months"
+    }
+]
+}
