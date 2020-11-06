@@ -12,6 +12,9 @@ import Signup from "./pages/Signup/Signup";
 import Mypage from "./pages/Mypage/Mypage";
 import DetailPage from "./pages/Detailpage/Detailpage";
 import Quiz from "./pages/Quiz/Quiz";
+import QuizSecondPage from "./pages/Quiz/Component/QuizSecondPage";
+import QuizThirdPage from "./pages/Quiz/Component/QuizThirdPage";
+import QuizFourthPage from "./pages/Quiz/Component/QuizFourthPage";
 import Reviewpage from "./pages/Reviewpage/Reviewpage";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
@@ -25,11 +28,15 @@ class Routes extends Component {
           <Route exact path="/Cart" component={Cart} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/Signup" component={Signup} />
-          <Route exact path="/MainPage" component={MainPage} />
+          {/* <Route exact path="/MainPage" component={MainPage} /> */}
           <Route exact path="/Mypage" component={Mypage} />
           <Route exact path="/MainPage" component={MainPage} />
           <Route exact path="/detail" component={DetailPage} />
           <Route exact path="/Quiz" component={Quiz} />
+          <Route exact path="/Quiz/secondPage" component={QuizSecondPage} />
+          <Route exact path="/Quiz/thirdPage" component={QuizThirdPage} />
+          <Route exact path="/Quiz/fourthPage" component={QuizFourthPage} />
+          <Route exact path="/Reviewpage" component={Reviewpage} />
           <Route exact path="/Reviewpage" component={Reviewpage} />
           <Route exact path="/Nav" component={Nav} />
           <Route exact path="/Footer" component={Footer} />
