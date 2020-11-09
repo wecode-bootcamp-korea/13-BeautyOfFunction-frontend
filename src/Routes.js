@@ -1,13 +1,13 @@
 // eslint-disable-next-line prettier/prettier
 import React, {Component} from "react";
 // eslint-disable-next-line prettier/prettier
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 //Switch
 
 // import MainPage from "./pages/Mainpage/Mainpage";
 // import About from "./pages/About/About";
 // import Cart from "./pages/Cart/Cart";
-// import Login from "./pages/Login/Login";
+import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 // import Mypage from "./pages/Mypage/Mypage";
 // import DetailPage from "./pages/Detailpage/Detailpage";
@@ -20,17 +20,17 @@ class Routes extends Component {
     return (
       <Router>
         {/* <Nav /> */}
-        {/* <Switch> */}
-        {/* <Route exact path="/About" component={About} />
-          <Route exact path="/Cart" component={Cart} />
-          <Route exact path="/Login" component={Login} /> */}
-        <Route exact path="/" component={Signup} />
-        {/* <Route exact path="/MainPage" component={MainPage} />
+        <Switch>
+          {/* <Route exact path="/About" component={About} />
+          <Route exact path="/Cart" component={Cart} /> */}
+          <Route exact path="/Login" component={Login} />
+          <Route exact path="/Signup" component={Signup} />
+          {/* <Route exact path="/MainPage" component={MainPage} />
           <Route exact path="/Mypage" component={Mypage} />
           <Route exact path="/detail" component={DetailPage} />
           <Route exact path="/Quiz" component={Quiz} />
-          <Route exact path="/Reviewpage" component={Reviewpage} />
-        </Switch> */}
+          <Route exact path="/Reviewpage" component={Reviewpage} /> */}
+        </Switch>
         {/* <Footer /> */}
       </Router>
     );
