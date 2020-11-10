@@ -1,0 +1,35 @@
+@import "../../styles/common.scss";
+
+footer {
+  .footerContainer {
+    flex-direction: row;
+    background-color: #faf3f3;
+    display: flex;
+    align-items: center;
+    padding: 30px 25px;
+
+    .footerLeft {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      max-width: 200px;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .footerRight {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 0;
+
+      span {
+        color: #878e8d;
+        cursor: pointer;
+        padding-left: 7px;
+        padding-right: 7px;
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+@import "../../styles/common.scss";
+
+.nav {
+  position: absolute;
+  width: 100%;
+  z-index: 6;
+  .navbar {
+    padding-bottom: 25px;
+    background-color: #97d3c7;
+
+    .navbarMargin {
+      @include flex-spaceBetween-center;
+      width: 95%;
+      margin: auto;
+      position: relative;
+      padding-top: 30px;
+
+      .navItem {
+        @include flex-center;
+        position: relative;
+        padding: 0 10px;
+        cursor: pointer;
+
+        .Toggle {
+          position: absolute;
+          bottom: 0;
+          top: 40px;
+          left: 10px;
+          width: 330px;
+          height: 100%;
+          background-color: #fafafa;
+          border-radius: 6px;
+
+          .Box {
+            overflow: hidden;
+            border-radius: 6px;
+
+            .productsHair {
+              margin-left: 0;
+              display: block;
+
+              .hairCare {
+                padding-top: 20px;
+                padding-left: 30px;
+                background-color: #fafafa;
+
+                h1 {
+                  font-size: 14px;
+                  letter-spacing: 3px;
+                  color: #878e8d;
+                }
+
+                ul {
+                  padding: 15px 0;
+                  list-style-type: none;
+                 
+                  li {
+                    font-family: "Whitman";
+                    padding: 10px 0;
+                    font-size: 18px;
+                  }
+                }
+              }
+            }
+          }
+
+          .quizHair {
+            padding: 20px 20px 32px;
+            line-height: 19px;
+            text-transform: lowercase;
+            letter-spacing: 0.75px;
+            background-color: #fafafa;
+
+            div {
+              @include flex-center;
+              font-family: "Whitman";
+              font-size: 16px;
+
+              img {
+                padding-right: 10px;
+              }
+
+              span {
+                font-family: "Whitman";
+                font-size: 15px;
+              }
+            }
+
+            a {
+              background-color: #61c8b3;
+              color: #fff;
+              border: 1px solid transparent;
+              margin-top: 10px;
+              display: block;
+              text-transform: uppercase;
+              padding: 1.3rem 1.5rem;
+              border-radius: 3px;
+              font-family: "Freight";
+              text-align: center;
+              font-weight: 100;
+              cursor: pointer;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+
+    .subNavItem {
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 14px;
+      line-height: 25px;
+      color: #262929;
+      cursor: pointer;
+    }
+
+    .arrowDown {
+      margin-bottom: -5px;
+      width: 20px;
+    }
+
+    .navLogo {
+      width: 200px;
+      cursor: pointer;
+    }
+  }
+}
