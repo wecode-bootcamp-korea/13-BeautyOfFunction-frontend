@@ -1,29 +1,24 @@
 /* eslint-disable prettier/prettier */
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import styled from "styled-components";
+import {SJ_URL} from "../../config";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  useEffect(() => {
-    console.log(email, password);
-  }, [email, password]);
-
-  function handleInput(e) {
-    console.log("email", e.target.value);
+  function handleEmailInput(e) {
     setEmail(e.target.value);
   }
 
   const passwordInput = (e) => {
-    console.log("password", e.target.value);
     return setPassword(e.target.value);
   };
 
   const signUp = () => {
-    fetch("http://10.58.7.186:8000/account/signup", {
+    fetch(`${SJ_URL}/account/signup`, {
       method: "POST",
       body: JSON.stringify({
         email,
@@ -34,6 +29,49 @@ const Signup = () => {
       .then((result) => {
         console.log("결과", result);
       });
+  };
+
+  const valid = (item) => {
+    let inputText = document.querySelector(`#${item}`);
+    inputText.style.color = "#61c8b3";
+  };
+
+  const invalid = (item) => {
+    let inputText = document.querySelector(`#${item}`);
+    inputText.style.color = "#D91022";
+  };
+
+  const handleInputChange = (e) => {
+    const password = e.target.value;
+
+    if (password.match(/[A-z]/) !== null) {
+      valid("capital");
+    } else {
+      invalid("capital");
+    }
+
+    if (password.match(/[0-9]/) !== null) {
+      valid("num");
+    } else {
+      invalid("num");
+    }
+
+    if (password.match(/[!@#$%-&*]/) !== null) {
+      valid("char");
+    } else {
+      invalid("char");
+    }
+
+    if (password.length > 7) {
+      valid("more8");
+    } else {
+      invalid("more8");
+    }
+  };
+
+  const handlePassword = (e) => {
+    passwordInput(e);
+    handleInputChange(e);
   };
 
   const {register, handleSubmit, errors} = useForm();
@@ -48,14 +86,16 @@ const Signup = () => {
       <PwRequirements>
         <AccountTitle>Password strength requirements</AccountTitle>
         <PwConditions>
-          <ConditionList> At least 8 characters</ConditionList>
+          <ConditionList id="more8"> At least 8 characters</ConditionList>
 
-          <ConditionList>At least 1 number ( 0-9 )</ConditionList>
+          <ConditionList id="num">At least 1 number ( 0-9 )</ConditionList>
 
-          <ConditionList>
+          <ConditionList id="char">
             At least 1 special character (e.g. !, @, #, $, %, -, &,*)
           </ConditionList>
-          <ConditionList>At least 1 alphabet ( a-z )</ConditionList>
+          <ConditionList id="capital">
+            At least 1 alphabet ( a-z )
+          </ConditionList>
         </PwConditions>
       </PwRequirements>
 
@@ -66,7 +106,7 @@ const Signup = () => {
             name="email"
             type="email"
             placeholder="Email"
-            onChange={handleInput}
+            onChange={handleEmailInput}
             ref={register({
               required: "❗️Email is required",
               pattern: {
@@ -77,13 +117,14 @@ const Signup = () => {
           />
         </InputBox>
         {errors.email && <Required> {errors.email.message}</Required>}
+
         <InputBox>
           <PwBox
             autoComplete="off"
             name="password"
             type="password"
             placeholder="Password"
-            onChange={passwordInput}
+            onChange={handlePassword}
             ref={register({
               required: "❗️Password is required",
               pattern: {
@@ -114,6 +155,7 @@ const Title = styled.h1`
   font-size: 45px;
   font-weight: 400;
   text-align: center;
+  padding-right: 40px;
 `;
 
 const PwRequirements = styled.div`
@@ -194,8 +236,8 @@ const Button = styled.button`
   width: 440px;
   height: 46px;
   margin-top: 20px;
-  color: #c1cac8;
-  background-color: #e6ebea;
+  color: white;
+  background-color: #61c8b3;
   border: 1px solid transparent;
   border-radius: 3px;
   letter-spacing: 2.5px;
