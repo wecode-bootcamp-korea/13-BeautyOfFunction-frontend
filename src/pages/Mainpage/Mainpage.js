@@ -1,5 +1,7 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// eslint-disable-next-line prettier/prettier
+import React, {Component} from "react";
+// eslint-disable-next-line prettier/prettier
+import {Link} from "react-router-dom";
 import Slider from "react-slick";
 import AOS from "aos";
 import Hairlist from "./Hairlist";
@@ -33,7 +35,8 @@ class Mainpage extends Component {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
-        this.setState({ listData: res.product_list });
+        // eslint-disable-next-line prettier/prettier
+        this.setState({listData: res.product_list});
       });
 
     AOS.init({
@@ -44,28 +47,34 @@ class Mainpage extends Component {
 
   openQuiz = () => {
     if (this.state.showQuiz === true) {
-      this.setState({ showQuiz: false });
+      // eslint-disable-next-line prettier/prettier
+      this.setState({showQuiz: false});
     }
     if (this.state.showQuiz === false) {
-      this.setState({ showQuiz: true });
+      // eslint-disable-next-line prettier/prettier
+      this.setState({showQuiz: true});
     }
   };
 
   openProducts = () => {
     if (this.state.showProducts === true) {
-      this.setState({ showProducts: false });
+      // eslint-disable-next-line prettier/prettier
+      this.setState({showProducts: false});
     }
     if (this.state.showProducts === false) {
-      this.setState({ showProducts: true });
+      // eslint-disable-next-line prettier/prettier
+      this.setState({showProducts: true});
     }
   };
 
   openAbout = () => {
     if (this.state.showAbout === true) {
-      this.setState({ showAbout: false });
+      // eslint-disable-next-line prettier/prettier
+      this.setState({showAbout: false});
     }
     if (this.state.showAbout === false) {
-      this.setState({ showAbout: true });
+      // eslint-disable-next-line prettier/prettier
+      this.setState({showAbout: true});
     }
   };
 
@@ -103,7 +112,7 @@ class Mainpage extends Component {
           <div className="navbar">
             <div className="navbarMargin">
               <div className="navItem quiz">
-                <a className="subNavItem" onClick={this.openQuiz}>
+                <a href="# " className="subNavItem" onClick={this.openQuiz}>
                   quiz
                   <img
                     className="arrowDown"
@@ -126,7 +135,7 @@ class Mainpage extends Component {
                 )}
               </div>
               <div className="navItem products">
-                <a className="subNavItem" onClick={this.openProducts}>
+                <a href="# " className="subNavItem" onClick={this.openProducts}>
                   products
                   <img
                     alt="navArrowDown"
@@ -171,7 +180,7 @@ class Mainpage extends Component {
                 </Link>
               </div>
               <div className="navItem about">
-                <a className="subNavItem" onClick={this.openAbout}>
+                <a href="# " className="subNavItem" onClick={this.openAbout}>
                   about
                   <img
                     alt="navArrowDown"
