@@ -14,6 +14,7 @@ const Signup = () => {
   }
 
   const passwordInput = (e) => {
+    console.log("password", e.target.value);
     return setPassword(e.target.value);
   };
 
