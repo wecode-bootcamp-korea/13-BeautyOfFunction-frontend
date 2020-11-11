@@ -1,19 +1,22 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 // eslint-disable-next-line prettier/prettier
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 // eslint-disable-next-line prettier/prettier
 import {Link} from "react-router-dom";
 // eslint-disable-next-line prettier/prettier
 import {useForm} from "react-hook-form";
+// eslint-disable-next-line prettier/prettier
+import {SJ_URL} from "../../config";
 
 import styled from "styled-components";
 
 const Login = () => {
-  const handleSocialLogiIn = () => {
+  const handleSocialLogiIn = (e) => {
+    e.preventDefault();
     window.Kakao.Auth.login({
       success: function (authObj) {
-        console.log(JSON.stringify(authObj));
-        fetch("http://10.58.7.186:8000/account/login/kakao", {
+        // console.log("check", JSON.stringify(authObj));
+        fetch(`${SJ_URL}/account/login/kakao`, {
           method: "GET",
           headers: {
             Authorization: authObj.access_token,
@@ -21,27 +24,20 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((res) => {
-            console.log(res.access_token);
-            localStorage.setItem("Kakao_token", res.access_token);
-            if (res.access_token) {
-              alert("Successfully logged in!");
-              this.props.history.push("/");
-              window.location.reload();
-            }
+            console.log("token", res);
+            localStorage.setItem("Kakao_token", res.Authorization);
+            alert("Successfully logged in!");
+            // this.props.history.push("/");
           });
       },
       fail: function (error) {
         alert(JSON.stringify(error));
+        console.log("erroe", error);
       },
     });
   };
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  useEffect(() => {
-    console.log(email, password);
-  }, [email, password]);
 
   function handleInputEmail(e) {
     setEmail(e.target.value);
@@ -51,7 +47,7 @@ const Login = () => {
   }
 
   const isLogin = () => {
-    fetch("http://10.58.7.186:8000/account/login", {
+    fetch(`${SJ_URL}/account/login`, {
       method: "POST",
       body: JSON.stringify({
         email,
@@ -59,7 +55,14 @@ const Login = () => {
       }),
     })
       .then((res) => res.json())
-      .then((result) => console.log("결과:", result));
+      .then((res) => {
+        if (res.Message === "Success") {
+          return (
+            localStorage.setItem("token", res.Authorization),
+            this.props.history.push("/Signup")
+          );
+        }
+      });
   };
 
   // eslint-disable-next-line prettier/prettier
@@ -148,8 +151,8 @@ const Title = styled.h1`
 const KakaoBtn = styled.button`
   width: 480px;
   height: 46px;
-  background-color: #ffff00;
-  color: black;
+  background-color: #f9e001;
+  color: 3b1c1c;
   display: inline-block;
   text-decoration: none;
   text-align: center;
@@ -256,8 +259,8 @@ const Button = styled.button`
   width: 480px;
   height: 46px;
   margin-top: 40px;
-  color: #c1cac8;
-  background-color: #e6ebea;
+  color: white;
+  background-color: #61c8b3;
   border: 1px solid transparent;
   border-radius: 3px;
   letter-spacing: 2.5px;
