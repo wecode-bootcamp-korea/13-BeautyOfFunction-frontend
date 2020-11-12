@@ -1,0 +1,286 @@
+.Cart {
+  margin: 0 auto;
+  letter-spacing: 1px;
+
+  .formulaSummary {
+    margin-top: 250px;
+    padding: 10px 20px;
+    width: 720px;
+    height: 220px;
+    margin: 0 auto;
+    background-color: #f0f8f7;
+
+    h2 {
+      padding: 15px 30px 25px 30px;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 27px;
+      letter-spacing: 1px;
+    }
+
+    span {
+      margin: 20px 30px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1rem;
+      letter-spacing: 1px;
+    }
+    .hairtypeSummary {
+      padding: 20px 0 10px 25px;
+      display: flex;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+
+      ol {
+        padding-left: 30px;
+
+        li {
+          padding-bottom: 7px;
+          font-size: 13px;
+          color: gray;
+        }
+      }
+    }
+
+    .fullFormula {
+      display: inline-block;
+      border-bottom: 1px solid gray;
+      font-size: 13px;
+      margin: 10px 25px;
+      padding-bottom: 5px;
+      color: gray;
+    }
+  }
+
+  .orderSummary {
+    margin: 70px;
+    display: flex;
+    justify-content: center;
+
+    .orderLeft {
+      border-radius: 4px;
+      .cartContainer {
+        padding: 2rem 2rem 1rem 2rem;
+        border: 1px solid #c1cac8;
+        border-bottom: none;
+        text-align: left;
+
+        h3 {
+          text-align: center;
+          padding-bottom: 50px;
+        }
+        .cartItemContainer {
+          display: flex;
+          margin-top: 30px;
+          .productDescription {
+            padding-top: 5px;
+            padding-left: 1.6rem;
+            margin-bottom: 5px;
+          }
+
+          .productDescription {
+            padding-top: 18px;
+            div {
+              padding: 6px 0 0 0;
+              font-size: 11px;
+
+              button {
+                font-size: 11px;
+                font-weight: 300;
+                border-radius: 5px;
+                margin-left: 10px;
+                background-color: white;
+              }
+            }
+          }
+        }
+
+        .total {
+          padding: 10px 0;
+          border-bottom: 1px solid gray;
+          text-align: right;
+          letter-spacing: 0.5;
+        }
+
+        .cartReceipt {
+          letter-spacing: 0.5px;
+          padding: 20px 0 0 0;
+          font-size: 13px;
+
+          :nth-child(4) {
+            font-size: 18px;
+            font-weight: 500;
+          }
+
+          .receiptLine {
+            padding: 12px 0;
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+
+        .promotion {
+          padding-top: 7px;
+          margin-bottom: 20px;
+          font-weight: 700;
+          text-align: right;
+          color: #97d3c7;
+          font-size: 13px;
+        }
+      }
+
+      .addItems {
+        background-color: #fafafa;
+        padding: 2rem 1.5rem;
+        border: 1px solid #c1cac8;
+        border-top: none;
+        letter-spacing: 0.5px;
+
+        :first-child {
+          .itemDesc {
+            :first-child {
+              padding-bottom: 10px;
+              line-height: 17px;
+            }
+          }
+        }
+
+        .Item {
+          margin: 15px auto;
+          padding: 1rem;
+          background-color: #fff;
+          border: 1px solid #e6ebea;
+          position: relative;
+          width: 85%;
+          display: flex;
+
+          .itemDesc {
+            margin-left: 20px;
+            font-size: 14px;
+
+            .colorPicker {
+              display: flex;
+
+              div {
+                width: 20px;
+                height: 20px;
+                border-radius: 20px;
+                margin: 7px 3px;
+              }
+            }
+
+            .customizeBtn {
+              letter-spacing: 2px;
+              color: #67b9a9;
+              border: 1px solid #97d3c7;
+              border-radius: 5px;
+              background-color: white;
+              width: 250px;
+              height: 30px;
+              padding-top: 5px;
+              text-align: center;
+              font-size: 15px;
+
+              &:hover {
+                background-color: #f0f8f7;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .orderRight {
+      width: 500px;
+      height: 420px;
+      margin-left: 30px;
+      border: 1px solid lightgray;
+      padding: 30px;
+
+      h2 {
+        padding-bottom: 5px;
+      }
+
+      :nth-child(3) {
+        color: #97d3c7;
+      }
+
+      p {
+        font-size: 13px;
+        padding: 10px 0;
+      }
+
+      .subscriptionItems {
+        width: 430px;
+        padding-top: 10px;
+
+        div {
+          display: flex;
+          justify-content: space-between;
+          padding: 20px;
+          background-color: #fafafa;
+          color: black;
+
+          span {
+            font-size: 14px;
+            word-break: keep-all;
+          }
+        }
+
+        .line {
+          margin-left: 20px;
+          padding: 0;
+          width: 390px;
+          height: 2px;
+          background-color: darkgray;
+        }
+      }
+
+      .subscriptionNotice {
+        padding: 20px 0;
+        font-size: 12px;
+        letter-spacing: 1px;
+        line-height: 17px;
+      }
+
+      .frequencyContainer {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        letter-spacing: 0.5px;
+
+        :nth-child(2) {
+          margin-right: 10px;
+          font-weight: 700;
+          color: #97d3c7;
+          border-bottom: solid 1px #97d3c7;
+        }
+      }
+
+      .hiddenFrequency {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+
+        div {
+          width: 130px;
+          font-size: 10px;
+          color: black;
+          height: 30px;
+          text-align: center;
+          word-break: keep-all;
+          padding-top: 6px;
+          border: 1px solid lightgray;
+          border-radius: 5px;
+
+          &:hover {
+            background-color: #f0f8f7;
+          }
+        }
+      }
+    }
+  }
+}
