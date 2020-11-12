@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import AOS from "aos";
 import "./About.scss";
+import "aos/dist/aos.css";
+
 class About extends Component {
   constructor() {
     super();
@@ -36,6 +40,12 @@ class About extends Component {
       this.setState({ showAbout: true });
     }
   };
+  componentDidMount() {
+    AOS.init({
+      duration: 1000,
+      delay: 400,
+    });
+  }
 
   render() {
     return (
@@ -94,15 +104,17 @@ class About extends Component {
                   </div>
                 )}
               </div>
-              <a className="subNavItem">reviews</a>
+              <Link to="/Reviewpage" className="subNavItem">
+                reviews
+              </Link>
               <div>
-                <a className="subNavItem">
+                <Link to="MainPage" className="subNavItem">
                   <img
                     alt="navLogo"
                     className="navLogo"
                     src="./images/MainLogoAbout.png"
                   ></img>
-                </a>
+                </Link>
               </div>
               <div className="navItem about">
                 <a className="subNavItem" onClick={this.openAbout}>
@@ -120,7 +132,6 @@ class About extends Component {
                         <div className="hairCare">
                           <ul>
                             <li>our story</li>
-                            <li>ingredients</li>
                           </ul>
                         </div>
                       </div>
@@ -128,8 +139,12 @@ class About extends Component {
                   </div>
                 )}
               </div>
-              <a className="subNavItem">account</a>
-              <a className="subNavItem">cart</a>
+              <Link to="/Signup" className="subNavItem">
+                account
+              </Link>
+              <Link to="Cart" className="subNavItem">
+                cart
+              </Link>
             </div>
           </div>
         </div>
@@ -139,19 +154,46 @@ class About extends Component {
             <div className="mainSectionInner">
               <div className="mainContent">
                 <div className="wePic">
-                  <img alt="wePic" src="/images/iOS이미지.jpg"></img>
+                  <img
+                    alt="wePic"
+                    src="/images/timPicGif.gif"
+                    data-aos="zoom-in"
+                  ></img>
                 </div>
                 <div className="mainRight">
                   <h1>hi, we're</h1>
-                  <h1 className="lastText">function of beauty.</h1>
+                  <h1 className="lastText">beauty of function.</h1>
                   <div className="bottomText">
                     <p>
-                      the world leader in customizable beauty – hair, skin, and
-                      body care products made for you (and only you).
+                      Front-End : 이지영, 김정현, 김보경, 임수현
+                      <br />
+                      Back- End : 허소정(PM), 김예진
                     </p>
                   </div>
                   <a>TAKE THE HAIR QUIZ</a>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mainImgDiv">
+            <div className="mainImgInner">
+              <div className="imgThree">
+                <img
+                  alt="timPic3"
+                  src="/images/timPic3.jpg"
+                  data-aos="fade-right"
+                ></img>
+                <img
+                  alt="timPic2"
+                  src="/images/timPic2.jpg"
+                  data-aos="flip-down"
+                ></img>
+                <img
+                  alt="timPic1"
+                  src="/images/timPic1.jpg"
+                  data-aos="fade-left"
+                ></img>
               </div>
             </div>
           </div>
