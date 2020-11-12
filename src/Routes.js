@@ -1,7 +1,8 @@
 // eslint-disable-next-line prettier/prettier
-import React, {Component} from "react";
+import React, { Component } from "react";
 // eslint-disable-next-line prettier/prettier
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+//Switch
 
 import MainPage from "./pages/Mainpage/Mainpage";
 import About from "./pages/About/About";
@@ -22,6 +23,7 @@ class Routes extends Component {
           <Route exact path="/Cart" component={Cart} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/Signup" component={Signup} />
+          {/* <Route exact path="/MainPage" component={MainPage} /> */}
           <Route exact path="/Mypage" component={Mypage} />
           <Route exact path="/MainPage" component={MainPage} />
           <Route exact path="/detail" component={DetailPage} />

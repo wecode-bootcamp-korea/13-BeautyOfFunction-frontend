@@ -1,11 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap");
+
 * {
   text-decoration: none;
   box-sizing: border-box;
 }
 
 html {
-  font-family: "Noto Serif SC", serif;
+  font-family: "Noto Serif SC", serif, "Noto Sans", sans-serif;
   font-weight: 400;
   font-size: 16px;
   color: #000;
