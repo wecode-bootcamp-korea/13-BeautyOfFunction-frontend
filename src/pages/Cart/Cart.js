@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import "./Cart.scss";
+import styled, { keyframes } from "styled-components";
 
 class Cart extends Component {
-  handleToggle = () => {};
+  constructor() {
+    super();
+    this.state = { toggle: false };
+  }
+
+  handleToggle = () => {
+    this.setState({ toggle: !this.state.toggle });
+    console.log(this.state.toggle);
+  };
 
   render() {
     return (
@@ -150,11 +159,67 @@ class Cart extends Component {
               <div>every 3 months</div>
               <div>just once</div>
             </div>
+            <span
+              className="updateFrequency"
+              onClick={() => this.handleToggle()}
+            >
+              update Frequency
+            </span>
           </div>
+          {/* <div onClick={() => this.handleToggle} data-name="false"> */}
+          <Toggleopen toggle={this.state.toggle}>
+            <div className={this.state.toggle ? "btn" : "btn2"}>
+              <span>every month</span>
+            </div>
+            <div className={this.state.toggle ? "btn" : "btn2"}>
+              <span>every 3 months</span>
+            </div>
+            <div className={this.state.toggle ? "btn" : "btn2"}>
+              <span>just once</span>
+            </div>
+          </Toggleopen>
         </div>
       </div>
     );
   }
 }
+
+// const Visible = keyframes`from {height : 0px;} to {
+//   height : 50px;}`;
+
+const Toggleopen = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  overflow: hidden;
+  transition: height 0.5s;
+
+  .btn {
+    width: 130px;
+    font-size: 10px;
+    color: black;
+    height: 30px;
+    text-align: center;
+    word-break: keep-all;
+    padding-top: 6px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #f0f8f7;
+    }
+
+    span {
+      opacity: 1;
+      transition: opacity 2s;
+    }
+  }
+
+  .btn2 {
+    transition: height 0.5s;
+    height: 0px;
+    font-size: 10px;
+  }
+`;
 
 export default Cart;
