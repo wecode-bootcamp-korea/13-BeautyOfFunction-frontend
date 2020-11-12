@@ -1,7 +1,6 @@
-// eslint-disable-next-line prettier/prettier
-import React, {Component} from "react";
-// eslint-disable-next-line prettier/prettier
-import {Link} from "react-router-dom";
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import { YJ_URL } from "../../config";
 import Slider from "react-slick";
 import AOS from "aos";
 import Hairlist from "./Hairlist";
@@ -23,59 +22,33 @@ class Mainpage extends Component {
     this.state = {
       showQuiz: false,
       showProducts: false,
-      showAbout: false,
       listData: [],
     };
   }
 
   componentDidMount() {
-    fetch("http://10.58.4.110:8000/products", {
+    fetch(`${YJ_URL}/products`, {
       method: "GET",
     })
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
-        // eslint-disable-next-line prettier/prettier
-        this.setState({listData: res.product_list});
+        this.setState({ listData: res.product_list });
+        console.log("체크>>>>>", res.product_list);
       });
 
     AOS.init({
-      duration: 800,
+      duration: 1200,
       delay: 400,
     });
   }
 
   openQuiz = () => {
-    if (this.state.showQuiz === true) {
-      // eslint-disable-next-line prettier/prettier
-      this.setState({showQuiz: false});
-    }
-    if (this.state.showQuiz === false) {
-      // eslint-disable-next-line prettier/prettier
-      this.setState({showQuiz: true});
-    }
+    this.setState({ showQuiz: !this.state.showQuiz });
   };
 
   openProducts = () => {
-    if (this.state.showProducts === true) {
-      // eslint-disable-next-line prettier/prettier
-      this.setState({showProducts: false});
-    }
-    if (this.state.showProducts === false) {
-      // eslint-disable-next-line prettier/prettier
-      this.setState({showProducts: true});
-    }
-  };
-
-  openAbout = () => {
-    if (this.state.showAbout === true) {
-      // eslint-disable-next-line prettier/prettier
-      this.setState({showAbout: false});
-    }
-    if (this.state.showAbout === false) {
-      // eslint-disable-next-line prettier/prettier
-      this.setState({showAbout: true});
-    }
+    this.setState({ showProducts: !this.state.showProducts });
   };
 
   render() {
@@ -105,7 +78,7 @@ class Mainpage extends Component {
       ),
       className: "slides",
     };
-    console.log(this.state.listData);
+
     return (
       <>
         <nav>
@@ -135,7 +108,7 @@ class Mainpage extends Component {
                 )}
               </div>
               <div className="navItem products">
-                <a href="# " className="subNavItem" onClick={this.openProducts}>
+                <a className="subNavItem" onClick={this.openProducts}>
                   products
                   <img
                     alt="navArrowDown"
@@ -149,12 +122,13 @@ class Mainpage extends Component {
                       <div className="productsHair">
                         <div className="hairCare">
                           <h1>HAIR CARE</h1>
-
                           {this.state.listData.map((list) => (
                             <ul>
                               <li
                                 onClick={() =>
-                                  list.history.push(`/detail/${list.id}`)
+                                  this.props.history.push(
+                                    `/detail${list.category_id}`
+                                  )
                                 }
                               >
                                 {list.name}
@@ -175,35 +149,16 @@ class Mainpage extends Component {
                   <img
                     alt="navLogo"
                     className="navLogo"
-                    src="./images/MainLogo.png"
+                    src="./images/MainLogoNF.png"
                   ></img>
                 </Link>
               </div>
               <div className="navItem about">
-                <a href="# " className="subNavItem" onClick={this.openAbout}>
+                <Link to="/About" className="subNavItem">
                   about
-                  <img
-                    alt="navArrowDown"
-                    className="arrowDown"
-                    src="./images/arrowdown.png"
-                  ></img>
-                </a>
-                {this.state.showAbout ? (
-                  <div className="Toggle">
-                    <div className="Box">
-                      <div className="productsHair">
-                        <div className="hairCare">
-                          <ul>
-                            <li>our story</li>
-                            <li>ingredients</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ) : null}
+                </Link>
               </div>
-              <Link to="/Signup" className="subNavItem">
+              <Link to="/Login" className="subNavItem">
                 account
               </Link>
               <Link to="/Cart" className="subNavItem">
@@ -225,6 +180,7 @@ class Mainpage extends Component {
                       image={list.image}
                       name={list.name}
                       short_info={list.short_info}
+                      category_id={list.category_id}
                     />
                   );
                 })}
@@ -241,4 +197,4 @@ class Mainpage extends Component {
   }
 }
 
-export default Mainpage;
+export default withRouter(Mainpage);

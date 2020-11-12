@@ -1,9 +1,12 @@
 /* eslint-disable prettier/prettier */
-import React, {useState} from "react";
-import {Link} from "react-router-dom";
-import {useForm} from "react-hook-form";
+import React, { useState } from "react";
+import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer";
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import styled from "styled-components";
-import {SJ_URL} from "../../config";
+import { SJ_URL } from "../../config";
+import { YJ_URL } from "../../config";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +21,7 @@ const Signup = () => {
   };
 
   const signUp = () => {
-    fetch(`${SJ_URL}/account/signup`, {
+    fetch(`${YJ_URL}/account/signup`, {
       method: "POST",
       body: JSON.stringify({
         email,
@@ -74,74 +77,78 @@ const Signup = () => {
     handleInputChange(e);
   };
 
-  const {register, handleSubmit, errors} = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
     console.log(">>>>", data);
   };
 
   return (
-    <Wrapper>
-      <Title>create an account</Title>
-      <PwRequirements>
-        <AccountTitle>Password strength requirements</AccountTitle>
-        <PwConditions>
-          <ConditionList id="more8"> At least 8 characters</ConditionList>
+    <>
+      <Nav />
+      <Wrapper>
+        <Title>create an account</Title>
+        <PwRequirements>
+          <AccountTitle>Password strength requirements</AccountTitle>
+          <PwConditions>
+            <ConditionList id="more8"> At least 8 characters</ConditionList>
 
-          <ConditionList id="num">At least 1 number ( 0-9 )</ConditionList>
+            <ConditionList id="num">At least 1 number ( 0-9 )</ConditionList>
 
-          <ConditionList id="char">
-            At least 1 special character (e.g. !, @, #, $, %, -, &,*)
-          </ConditionList>
-          <ConditionList id="capital">
-            At least 1 alphabet ( a-z )
-          </ConditionList>
-        </PwConditions>
-      </PwRequirements>
+            <ConditionList id="char">
+              At least 1 special character (e.g. !, @, #, $, %, -, &,*)
+            </ConditionList>
+            <ConditionList id="capital">
+              At least 1 alphabet ( a-z )
+            </ConditionList>
+          </PwConditions>
+        </PwRequirements>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <InputBox>
-          <EmailBox
-            autoComplete="off"
-            name="email"
-            type="email"
-            placeholder="Email"
-            onChange={handleEmailInput}
-            ref={register({
-              required: "❗️Email is required",
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                message: "❗️Enter a valid email address",
-              },
-            })}
-          />
-        </InputBox>
-        {errors.email && <Required> {errors.email.message}</Required>}
-        <InputBox>
-          <PwBox
-            autoComplete="off"
-            name="password"
-            type="password"
-            placeholder="Password"
-            onChange={handlePassword}
-            ref={register({
-              required: "❗️Password is required",
-              pattern: {
-                value: /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%-&*]).*$/,
-                message: "❗️Password strength invalid.",
-              },
-            })}
-          />
-        </InputBox>
-        {errors.password && <Required>{errors.password.message}</Required>}
-        <Button type="submit" onClick={signUp}>
-          CONTINUE
-        </Button>
-      </form>
-      <Question>
-        Have an account already?<NLink to="/Login">Log in here</NLink>
-      </Question>
-    </Wrapper>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <InputBox>
+            <EmailBox
+              autoComplete="off"
+              name="email"
+              type="email"
+              placeholder="Email"
+              onChange={handleEmailInput}
+              ref={register({
+                required: "❗️Email is required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                  message: "❗️Enter a valid email address",
+                },
+              })}
+            />
+          </InputBox>
+          {errors.email && <Required> {errors.email.message}</Required>}
+          <InputBox>
+            <PwBox
+              autoComplete="off"
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={handlePassword}
+              ref={register({
+                required: "❗️Password is required",
+                pattern: {
+                  value: /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%-&*]).*$/,
+                  message: "❗️Password strength invalid.",
+                },
+              })}
+            />
+          </InputBox>
+          {errors.password && <Required>{errors.password.message}</Required>}
+          <Button type="submit" onClick={signUp}>
+            CONTINUE
+          </Button>
+        </form>
+        <Question>
+          Have an account already?<NLink to="/Login">Log in here</NLink>
+        </Question>
+      </Wrapper>
+      <Footer />
+    </>
   );
 };
 

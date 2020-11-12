@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-const API = "http://10.58.7.250:8000/products";
+import { Link, withRouter } from "react-router-dom";
 
 class Hairlist extends Component {
   render() {
-    const { image, name, short_info } = this.props;
+    const { image, name, short_info, category_id } = this.props;
     return (
       <div className="listBox">
-        <div className="listImg">
+        <div
+          className="listImg"
+          onClick={() => this.props.history.push(`/detail${category_id}`)}
+        >
           <a>
             <img src={image}></img>
           </a>
@@ -23,4 +26,4 @@ class Hairlist extends Component {
   }
 }
 
-export default Hairlist;
+export default withRouter(Hairlist);

@@ -75,22 +75,24 @@ class Nav extends Component {
                 </div>
               )}
             </div>
-            <a className="subNavItem">reviews</a>
+            <Link to="/Reviewpage" className="subNavItem">
+              reviews
+            </Link>
             <div>
-              <a className="subNavItem">
+              <Link to="/" className="subNavItem">
                 <img
                   alt="navLogo"
                   className="navLogo"
                   src="./images/MainLogoNF.png"
                 ></img>
-              </a>
+              </Link>
             </div>
             <div className="navItem about">
               <Link to="/About" className="subNavItem" onClick={this.openAbout}>
                 about
               </Link>
             </div>
-            <Link to="/Signup" className="subNavItem">
+            <Link to="/Login" className="subNavItem">
               account
             </Link>
             <Link to="/Cart" className="subNavItem">

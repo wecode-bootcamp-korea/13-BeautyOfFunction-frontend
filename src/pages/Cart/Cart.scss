@@ -1,57 +1,59 @@
 .Cart {
   margin: 0 auto;
   letter-spacing: 1px;
+  .summaryContainer {
+    padding-top: 50px;
+    .formulaSummary {
+      margin-top: 250px;
+      padding: 10px 20px;
+      width: 720px;
+      height: 220px;
+      margin: 0 auto;
+      background-color: #f0f8f7;
 
-  .formulaSummary {
-    margin-top: 250px;
-    padding: 10px 20px;
-    width: 720px;
-    height: 220px;
-    margin: 0 auto;
-    background-color: #f0f8f7;
-
-    h2 {
-      padding: 15px 30px 25px 30px;
-      font-size: 24px;
-      font-weight: 400;
-      line-height: 27px;
-      letter-spacing: 1px;
-    }
-
-    span {
-      margin: 20px 30px;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 1rem;
-      letter-spacing: 1px;
-    }
-    .hairtypeSummary {
-      padding: 20px 0 10px 25px;
-      display: flex;
-
-      img {
-        width: 30px;
-        height: 30px;
+      h2 {
+        padding: 15px 30px 25px 30px;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 27px;
+        letter-spacing: 1px;
       }
 
-      ol {
-        padding-left: 30px;
+      span {
+        margin: 20px 30px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1rem;
+        letter-spacing: 1px;
+      }
+      .hairtypeSummary {
+        padding: 20px 0 10px 25px;
+        display: flex;
 
-        li {
-          padding-bottom: 7px;
-          font-size: 13px;
-          color: gray;
+        img {
+          width: 30px;
+          height: 30px;
+        }
+
+        ol {
+          padding-left: 30px;
+
+          li {
+            padding-bottom: 7px;
+            font-size: 13px;
+            color: gray;
+          }
         }
       }
-    }
 
-    .fullFormula {
-      display: inline-block;
-      border-bottom: 1px solid gray;
-      font-size: 13px;
-      margin: 10px 25px;
-      padding-bottom: 5px;
-      color: gray;
+      .fullFormula {
+        display: inline-block;
+        border-bottom: 1px solid gray;
+        font-size: 13px;
+        margin: 10px 25px;
+        padding-bottom: 5px;
+        color: gray;
+      }
     }
   }
 

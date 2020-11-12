@@ -1,13 +1,11 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-// eslint-disable-next-line prettier/prettier
-import React, {useState} from "react";
-// eslint-disable-next-line prettier/prettier
-import {Link} from "react-router-dom";
-// eslint-disable-next-line prettier/prettier
-import {useForm} from "react-hook-form";
-// eslint-disable-next-line prettier/prettier
-import {SJ_URL} from "../../config";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { SJ_URL } from "../../config";
+import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer";
 import styled from "styled-components";
+import { YJ_URL } from "../../config";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -17,7 +15,7 @@ const Login = (props) => {
     e.preventDefault();
     window.Kakao.Auth.login({
       success: function (authObj) {
-        fetch(`${SJ_URL}/account/login/kakao`, {
+        fetch(`${YJ_URL}/account/login/kakao`, {
           method: "GET",
           headers: {
             Authorization: authObj.access_token,
@@ -46,7 +44,7 @@ const Login = (props) => {
   }
 
   const isLogin = () => {
-    fetch(`${SJ_URL}/account/login`, {
+    fetch(`${YJ_URL}/account/login`, {
       method: "POST",
       body: JSON.stringify({
         email,
@@ -64,74 +62,78 @@ const Login = (props) => {
   };
 
   // eslint-disable-next-line prettier/prettier
-  const {register, handleSubmit, errors} = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (values) => {
     console.log(values);
   };
 
   return (
-    <Wrapper>
-      <Title>log in</Title>
+    <>
+      <Nav />
+      <Wrapper>
+        <Title>log in</Title>
 
-      <KakaoBtn onClick={handleSocialLogiIn}>LOG IN USING KAKAO</KakaoBtn>
+        <KakaoBtn onClick={handleSocialLogiIn}>LOG IN USING KAKAO</KakaoBtn>
 
-      <BorderLine>
-        <BetweenLine>OR</BetweenLine>
-      </BorderLine>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <InputBox>
-          <EmailBox
-            autoComplete="off"
-            name="email"
-            type="email"
-            placeholder="Email"
-            onChange={handleInputEmail}
-            ref={register({
-              required: "❗️Email is required",
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                message: "❗️Enter a valid email address",
-              },
-            })}
-          />
-        </InputBox>
+        <BorderLine>
+          <BetweenLine>OR</BetweenLine>
+        </BorderLine>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <InputBox>
+            <EmailBox
+              autoComplete="off"
+              name="email"
+              type="email"
+              placeholder="Email"
+              onChange={handleInputEmail}
+              ref={register({
+                required: "❗️Email is required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                  message: "❗️Enter a valid email address",
+                },
+              })}
+            />
+          </InputBox>
 
-        {errors.email && <Required> {errors.email.message}</Required>}
+          {errors.email && <Required> {errors.email.message}</Required>}
 
-        <InputBox>
-          <PwBox
-            autoComplete="off"
-            name="password"
-            type="password"
-            placeholder="Password"
-            onChange={handleInputPassword}
-            ref={register({
-              required: "❗️Password is required",
-              pattern: {
-                value: /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%-&*]).*$/,
-                message: "❗️Password strength invalid.",
-              },
-            })}
-          />
-        </InputBox>
-        {errors.password && <Required>{errors.password.message} </Required>}
+          <InputBox>
+            <PwBox
+              autoComplete="off"
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={handleInputPassword}
+              ref={register({
+                required: "❗️Password is required",
+                pattern: {
+                  value: /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%-&*]).*$/,
+                  message: "❗️Password strength invalid.",
+                },
+              })}
+            />
+          </InputBox>
+          {errors.password && <Required>{errors.password.message} </Required>}
 
-        <RecaptchaNote>
-          This site is protected by reCAPTCHA and the Google
-          <Policy> Privacy Policy </Policy> and
-          <Policy> Terms of service </Policy> apply.
-        </RecaptchaNote>
-        <Button type="submit" onClick={isLogin}>
-          CONTINUE
-        </Button>
-      </form>
-      <ForgetPw>Forgot your password?</ForgetPw>
-      <CreateAccount>
-        Don't have an account?
-        <CreateOne to="/Signup"> Create one here. </CreateOne>
-      </CreateAccount>
-    </Wrapper>
+          <RecaptchaNote>
+            This site is protected by reCAPTCHA and the Google
+            <Policy> Privacy Policy </Policy> and
+            <Policy> Terms of service </Policy> apply.
+          </RecaptchaNote>
+          <Button type="submit" onClick={isLogin}>
+            CONTINUE
+          </Button>
+        </form>
+        <ForgetPw>Forgot your password?</ForgetPw>
+        <CreateAccount>
+          Don't have an account?
+          <CreateOne to="/Signup"> Create one here. </CreateOne>
+        </CreateAccount>
+      </Wrapper>
+      <Footer />
+    </>
   );
 };
 

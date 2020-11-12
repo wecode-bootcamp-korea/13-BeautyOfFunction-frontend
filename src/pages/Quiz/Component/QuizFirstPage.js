@@ -13,6 +13,7 @@ import Coarse from "./svgComponents/coarse";
 import Medium from "./svgComponents/medium";
 import { QuizContainer } from "../Quiz";
 import { themeColor } from "./subComponent/theme";
+import { YJ_URL } from "../../../config";
 
 const QuizFirstPage = () => {
   const [hairType, setHairType] = useState([]);
@@ -41,7 +42,7 @@ const QuizFirstPage = () => {
   const scalpMoistureSvg = [<Dry />, <Normal />, <Oily />];
 
   useEffect(() => {
-    fetch("http://10.58.7.186:8000/quiz/hair-profile")
+    fetch(`${YJ_URL}/quiz/hair-profile`)
       .then((response) => response.json())
       .then((data) => {
         setHairType(data.hair_profile[0].hair_types);
@@ -117,7 +118,7 @@ const QuizFirstPage = () => {
         </div>
       </QuizSection>
       <AnswerArea>
-        <Link to="/Quiz/secondPage">
+        <Link to="/secondPage">
           <QuizButton>CONTINUE</QuizButton>
         </Link>
         <p>over 52,000 five-star reviews!!!</p>

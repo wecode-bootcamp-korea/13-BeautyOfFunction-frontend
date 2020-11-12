@@ -5,6 +5,9 @@ import { QuizContainer } from "../Quiz";
 import { QuizButton, SuperScript, Title, AnswerArea } from "./QuizFirstPage";
 import { PreviousButton } from "./QuizSecondPage";
 import { themeColor } from "./subComponent/theme";
+import Nav from "../../../components/Nav/Nav";
+import Footer from "../../../components/Footer/Footer";
+import { YJ_URL } from "../../../config";
 
 const QuizFourthPage = () => {
   const [colletionItem, setColletionItem] = useState([]);
@@ -27,7 +30,7 @@ const QuizFourthPage = () => {
   };
 
   useEffect(() => {
-    fetch("http://10.58.7.186:8000/quiz/size-and-frequency", {
+    fetch(`${YJ_URL}/quiz/size-and-frequency`, {
       method: "POST",
       headers: {},
       body: JSON.stringify({
@@ -51,92 +54,96 @@ const QuizFourthPage = () => {
   const conditionerSize = [0, 2, 5];
 
   return (
-    <QuizContainer>
-      <SuperScript>
-        <div>
-          HAIR QUIZ
-          <sup>4/4</sup>
-        </div>
-      </SuperScript>
-      <Title>size and frequency</Title>
-      <CollectionSection>
-        <h3>
-          S H A M P O O &nbsp; + &nbsp; C O N D I T I O N E R &nbsp; S E T
-        </h3>
-        <ul>
-          {colletionItem?.map((item, idx) => {
-            return (
-              <ColletionItemList
-                className="colletionItem"
-                key={idx}
-                name={item.name}
-                selectedColletionItemName={selectedColletionItemName}
-                shampooSize={shampooSize.includes(idx)}
-                conditionerSize={conditionerSize.includes(idx)}
-                onClick={() => getColletionItemName(item.name)}
-              >
-                {idx === 0 && <span className="bestDeal">best deal</span>}
-                <span className="checkBox">&#10003;</span>
-                <label>{item.name}</label>
-                <div className="ImgAndCost">
-                  <div>
-                    {shampooArr.includes(idx) && (
-                      <img
-                        className="shampooImg"
-                        src={shampoo_image}
-                        alt="shampoo"
-                      />
-                    )}
-                    {conditionerArr.includes(idx) && (
-                      <img
-                        className="conditionerImg"
-                        src={conditioner_image}
-                        alt="conditioner"
-                      />
-                    )}
+    <>
+      <Nav />
+      <QuizContainer>
+        <SuperScript>
+          <div>
+            HAIR QUIZ
+            <sup>4/4</sup>
+          </div>
+        </SuperScript>
+        <Title>size and frequency</Title>
+        <CollectionSection>
+          <h3>
+            S H A M P O O &nbsp; + &nbsp; C O N D I T I O N E R &nbsp; S E T
+          </h3>
+          <ul>
+            {colletionItem?.map((item, idx) => {
+              return (
+                <ColletionItemList
+                  className="colletionItem"
+                  key={idx}
+                  name={item.name}
+                  selectedColletionItemName={selectedColletionItemName}
+                  shampooSize={shampooSize.includes(idx)}
+                  conditionerSize={conditionerSize.includes(idx)}
+                  onClick={() => getColletionItemName(item.name)}
+                >
+                  {idx === 0 && <span className="bestDeal">best deal</span>}
+                  <span className="checkBox">&#10003;</span>
+                  <label>{item.name}</label>
+                  <div className="ImgAndCost">
+                    <div>
+                      {shampooArr.includes(idx) && (
+                        <img
+                          className="shampooImg"
+                          src={shampoo_image}
+                          alt="shampoo"
+                        />
+                      )}
+                      {conditionerArr.includes(idx) && (
+                        <img
+                          className="conditionerImg"
+                          src={conditioner_image}
+                          alt="conditioner"
+                        />
+                      )}
+                    </div>
+                    <span className="bigCost">{item.price}</span>
                   </div>
-                  <span className="bigCost">{item.price}</span>
-                </div>
-              </ColletionItemList>
-            );
-          })}
-        </ul>
-      </CollectionSection>
-      <FrequencySection>
-        <h3>F R E Q U E N C Y</h3>
-        <p>cancel anytime</p>
-        <div>
-          {frequency_options?.map((frequencyContent) => {
-            return (
-              <FrequencyButton
-                option={frequencyContent.option}
-                selectedFrequency={selectedFrequency}
-                onClick={() => getFrequency(frequencyContent.option)}
-              >
-                <div className="checkBox">&#10003;</div>
-                {frequencyContent.option}
-                <span className="freeShiping">free shiping</span>
-              </FrequencyButton>
-            );
-          })}
-        </div>
-      </FrequencySection>
-      <GiftCheckBoxCenter>
-        <input type="checkbox" />
-        <label>is this a gift? 🎁</label>
-      </GiftCheckBoxCenter>
-      <AnswerArea>
-        <div>
-          <Link to="/Quiz/thirdPage">
-            <PreviousButton>PREVIOUS</PreviousButton>
-          </Link>
-          <input type="hidden" className="answer" value="" id="goal"></input>
-          <Link to="/Cart">
-            <QuizButton>NEXT</QuizButton>
-          </Link>
-        </div>
-      </AnswerArea>
-    </QuizContainer>
+                </ColletionItemList>
+              );
+            })}
+          </ul>
+        </CollectionSection>
+        <FrequencySection>
+          <h3>F R E Q U E N C Y</h3>
+          <p>cancel anytime</p>
+          <div>
+            {frequency_options?.map((frequencyContent) => {
+              return (
+                <FrequencyButton
+                  option={frequencyContent.option}
+                  selectedFrequency={selectedFrequency}
+                  onClick={() => getFrequency(frequencyContent.option)}
+                >
+                  <div className="checkBox">&#10003;</div>
+                  {frequencyContent.option}
+                  <span className="freeShiping">free shiping</span>
+                </FrequencyButton>
+              );
+            })}
+          </div>
+        </FrequencySection>
+        <GiftCheckBoxCenter>
+          <input type="checkbox" />
+          <label>is this a gift? 🎁</label>
+        </GiftCheckBoxCenter>
+        <AnswerArea>
+          <div>
+            <Link to="/thirdPage">
+              <PreviousButton>PREVIOUS</PreviousButton>
+            </Link>
+            <input type="hidden" className="answer" value="" id="goal"></input>
+            <Link to="/Cart">
+              <QuizButton>NEXT</QuizButton>
+            </Link>
+          </div>
+        </AnswerArea>
+      </QuizContainer>
+      <Footer />
+    </>
   );
 };
 
