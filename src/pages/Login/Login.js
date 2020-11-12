@@ -7,15 +7,16 @@ import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
 // eslint-disable-next-line prettier/prettier
 import {SJ_URL} from "../../config";
-
 import styled from "styled-components";
 
-const Login = () => {
+const Login = (props) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleSocialLogiIn = (e) => {
     e.preventDefault();
     window.Kakao.Auth.login({
       success: function (authObj) {
-        // console.log("check", JSON.stringify(authObj));
         fetch(`${SJ_URL}/account/login/kakao`, {
           method: "GET",
           headers: {
@@ -27,7 +28,7 @@ const Login = () => {
             console.log("token", res);
             localStorage.setItem("Kakao_token", res.Authorization);
             alert("Successfully logged in!");
-            // this.props.history.push("/");
+            props.history.push("/Mypage");
           });
       },
       fail: function (error) {
@@ -36,8 +37,6 @@ const Login = () => {
       },
     });
   };
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   function handleInputEmail(e) {
     setEmail(e.target.value);
@@ -57,10 +56,9 @@ const Login = () => {
       .then((res) => res.json())
       .then((res) => {
         if (res.Message === "Success") {
-          return (
-            localStorage.setItem("token", res.Authorization),
-            this.props.history.push("/Signup")
-          );
+          localStorage.setItem("access_token", res["Authorization"]);
+          alert("Successfully logged in!");
+          props.history.push("/Mypage");
         }
       });
   };
