@@ -4,7 +4,7 @@ import { themeColor } from "./theme";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const DetailPageReviewSectionComponent = ({ detailReview }) => {
+const DetailPageReviewSectionComponent = ({ review_list }) => {
   const reviewSettings = {
     dots: false,
     infinite: true,
@@ -14,33 +14,21 @@ const DetailPageReviewSectionComponent = ({ detailReview }) => {
     slidesToScroll: 1,
   };
 
+  console.log("체크 >>>>>", review_list);
+
   return (
     <DetailPageReviewSection>
       <DetailpageH1>the people have spoken</DetailpageH1>
       <div className="detailPageReviewWraper">
         <Slider {...reviewSettings}>
-          {detailReview?.map(
-            ({ starRating, name, text, hairProfile, goal, fragrance }) => {
+          {review_list?.map(
+            ({ rating, name, comment, hairProfile, goal, fragrance }) => {
               return (
                 <DetailPageReview>
-                  <StarRating>{starRating}</StarRating>
+                  <StarRating>{rating} Grade!!!</StarRating>
                   <div>
                     <Name>{name}</Name>
-                    <Text>{text}</Text>
-                    <UserProfile>
-                      <div>
-                        <SpanTitle>hair profile: </SpanTitle>
-                        <span>{hairProfile}</span>
-                      </div>
-                      <div>
-                        <SpanTitle>goals: </SpanTitle>
-                        <span>{goal}</span>
-                      </div>
-                      <div>
-                        <SpanTitle>fragrance: </SpanTitle>
-                        <span>{fragrance}</span>
-                      </div>
-                    </UserProfile>
+                    <Text>{comment}</Text>
                   </div>
                 </DetailPageReview>
               );
@@ -134,26 +122,21 @@ const DetailPageReview = styled.div`
   box-shadow: 0 2px 20px 0 rgba(203, 203, 203, 0.5);
 `;
 
-const SpanTitle = styled.span`
-  font-weight: bold;
-`;
-
 const StarRating = styled.div`
-  font-size: 16px;
+  font-size: 20px;
   color: ${themeColor.mainColor};
   margin-bottom: 25px;
 `;
 
 const Name = styled.div`
+  margin-bottom: 50px;
   color: #353535;
+  font-size: 30px;
 `;
 
 const Text = styled.div`
-  width: 360px;
+  width: 100%;
   height: 118px;
   color: #6b6b6b;
-`;
-
-const UserProfile = styled.div`
-  color: #cbcbcb;
+  font-size: 16px;
 `;
