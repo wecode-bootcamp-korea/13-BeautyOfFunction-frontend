@@ -195,7 +195,7 @@
 
     .orderRight {
       width: 500px;
-      height: 420px;
+      height: 100%;
       margin-left: 30px;
       border: 1px solid lightgray;
       padding: 30px;
@@ -260,27 +260,28 @@
         }
       }
 
-      .hiddenFrequency {
-        display: flex;
-        justify-content: space-between;
-        padding-top: 20px;
+      // .hiddenFrequency {
+      //   div {
+      //     width: 130px;
+      //     font-size: 10px;
+      //     color: black;
+      //     height: 30px;
+      //     text-align: center;
+      //     word-break: keep-all;
+      //     padding-top: 6px;
+      //     border: 1px solid lightgray;
+      //     border-radius: 5px;
 
-        div {
-          width: 130px;
-          font-size: 10px;
-          color: black;
-          height: 30px;
-          text-align: center;
-          word-break: keep-all;
-          padding-top: 6px;
-          border: 1px solid lightgray;
-          border-radius: 5px;
+      //     &:hover {
+      //       background-color: #f0f8f7;
+      //     }
+      //   }
 
-          &:hover {
-            background-color: #f0f8f7;
-          }
-        }
-      }
+      //   .none {
+      //     width: 0px;
+      //     height: 0px;
+      //   }
+      // }
     }
   }
 }
