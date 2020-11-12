@@ -10,13 +10,15 @@ import DetailPageReviewSectionComponent from "./Components/DetailPageReviewSecti
 
 const Detailpage = () => {
   const [productDetailData, setProductDetailData] = useState([]);
+  const [productReviewData, setProductReviewData] = useState([]);
   const [detailLogo, setDetailLogo] = useState([]);
 
   useEffect(() => {
-    fetch("http://10.58.4.110:8000/products/1")
+    fetch("http://10.58.7.106:8000/products/1")
       .then((response) => response.json())
       .then((data) => {
         setProductDetailData(data.detail_list);
+        setProductReviewData(data.review_list);
       });
   }, []);
 
@@ -38,8 +40,9 @@ const Detailpage = () => {
     recommended_url,
     great_for,
     great_for_url,
-    detailReview,
   } = productDetailData;
+
+  console.log(productReviewData);
 
   return (
     <ThemeProvider theme={theme}>
@@ -63,7 +66,7 @@ const Detailpage = () => {
           great_for_url={great_for_url}
         />
       </section>
-      <DetailPageReviewSectionComponent detailReview={detailReview} />
+      <DetailPageReviewSectionComponent review_list={productReviewData} />
     </ThemeProvider>
   );
 };
