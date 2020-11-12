@@ -1,11 +1,17 @@
 import styled from "styled-components";
 import QuizFirstPage from "./Component/QuizFirstPage";
+import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer";
 
 const Quiz = () => {
   return (
-    <QuizContainer>
-      <QuizFirstPage />
-    </QuizContainer>
+    <>
+      <Nav />
+      <QuizContainer>
+        <QuizFirstPage />
+      </QuizContainer>
+      <Footer />
+    </>
   );
 };
 

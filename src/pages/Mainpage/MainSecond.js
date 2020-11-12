@@ -26,7 +26,7 @@ class MainSecond extends Component {
                 Take the skin quiz and get your one-in-three-billion, complete,
                 skin routine.
               </p>
-              <Link to="/detail">let's talk hair</Link>
+              <Link to="">let's talk hair</Link>
             </div>
           </div>
         </div>

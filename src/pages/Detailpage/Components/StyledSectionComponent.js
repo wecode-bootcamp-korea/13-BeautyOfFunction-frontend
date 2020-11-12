@@ -72,6 +72,7 @@ const StyledSection = styled.section`
       list-style-type: disc;
 
       li {
+        line-height: 30px;
         margin-bottom: 10px;
         width: 480px;
       }

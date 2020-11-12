@@ -1,6 +1,8 @@
 @import "../../styles/common.scss";
 
 footer {
+  height: 100px;
+  background-color: #faf3f3;
   .footerContainer {
     flex-direction: row;
     background-color: #faf3f3;

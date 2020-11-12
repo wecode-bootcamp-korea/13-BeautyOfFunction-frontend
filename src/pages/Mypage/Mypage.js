@@ -1,11 +1,9 @@
-// eslint-disable-next-line no-unused-vars
-// eslint-disable-next-line prettier/prettier
-import React, {useState, useEffect} from "react";
-// eslint-disable-next-line prettier/prettier
-import {Link} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-// eslint-disable-next-line prettier/prettier
-import {SJ_URL} from "../../config";
+import { SJ_URL } from "../../config";
+import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer";
 
 const Mypage = () => {
   const [users, setUsers] = useState("");
@@ -38,6 +36,7 @@ const Mypage = () => {
 
   return (
     <>
+      <Nav />
       <Head>
         <FirstTitle>YOUR ACCOUT </FirstTitle>
         <Hi>hi there!</Hi>
@@ -80,6 +79,7 @@ const Mypage = () => {
           <LogOut to="/Login">LOG OUT</LogOut>
         </RightContainer>
       </TotalContainer>
+      <Footer />
     </>
   );
 };
@@ -118,6 +118,7 @@ const TotalContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-right: 70px;
+  margin-bottom: 50px;
 `;
 
 const SubscribeBox = styled.div`
