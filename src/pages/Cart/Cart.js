@@ -20,7 +20,7 @@ class Cart extends Component {
           <div className="summary">
             <div className="formulaSummary">
               <h2>
-                <b style={{ color: "#97d3c7" }}>jiyoung</b> 's unique formula is
+                <b style={{ color: "#97d3c7" }}>wecode</b> 's unique formula is
                 ready to be created!
               </h2>
               <span>
@@ -42,13 +42,7 @@ class Cart extends Component {
             <div className="cartContainer">
               <h2>order Summary</h2>
               <div className="cartItemContainer">
-                <div
-                  style={{
-                    width: "150px",
-                    height: "100px",
-                    backgroundColor: "lightblue",
-                  }}
-                ></div>
+                <img src="../Images/cartImage.png" />
                 <div className="productDescription">
                   <h4 style={{ fontWeight: 400, fontSize: "14px" }}>
                     16oz Shampoo & 16oz Conditioner
@@ -89,14 +83,7 @@ class Cart extends Component {
             </div>
             <div className="addItems">
               <div className="Item">
-                <div
-                  className="Itemimg"
-                  style={{
-                    width: "75px",
-                    height: "75px",
-                    backgroundColor: "lightblue",
-                  }}
-                ></div>
+                <img classNamge="Itemimg" src="../Images/pink.png" />
                 <div className="itemDesc">
                   <div>
                     take the skin quiz & get your <br />
@@ -106,14 +93,7 @@ class Cart extends Component {
                 </div>
               </div>
               <div className="Item">
-                <div
-                  className="Itemimg"
-                  style={{
-                    width: "75px",
-                    height: "75px",
-                    backgroundColor: "lightblue",
-                  }}
-                ></div>
+                <img className="Itemimg" src="../Images/blue.png" />
                 <div className="itemDesc">
                   <div>7.5oz hair mask</div>
                   <div className="colorPicker">
@@ -154,30 +134,11 @@ class Cart extends Component {
               <span>ships every 3 months</span>
               <span className="updateFrequency">update Frequency</span>
             </div>
-            <div onClick={() => this.handleToggle} className="hiddenFrequency">
-              <div>every month</div>
-              <div>every 3 months</div>
-              <div>just once</div>
-            </div>
-            <span
-              className="updateFrequency"
-              onClick={() => this.handleToggle()}
-            >
-              update Frequency
-            </span>
+            <div
+              onClick={() => this.handleToggle}
+              className="hiddenFrequency"
+            ></div>
           </div>
-          {/* <div onClick={() => this.handleToggle} data-name="false"> */}
-          <Toggleopen toggle={this.state.toggle}>
-            <div className={this.state.toggle ? "btn" : "btn2"}>
-              <span>every month</span>
-            </div>
-            <div className={this.state.toggle ? "btn" : "btn2"}>
-              <span>every 3 months</span>
-            </div>
-            <div className={this.state.toggle ? "btn" : "btn2"}>
-              <span>just once</span>
-            </div>
-          </Toggleopen>
         </div>
       </div>
     );

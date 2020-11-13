@@ -75,6 +75,12 @@
         .cartItemContainer {
           display: flex;
           margin-top: 30px;
+
+          img {
+            width: 100px;
+            height: 100px;
+          }
+
           .productDescription {
             padding-top: 5px;
             padding-left: 1.6rem;
@@ -156,6 +162,11 @@
           position: relative;
           width: 85%;
           display: flex;
+
+          img {
+            width: 40px;
+            height: 75px;
+          }
 
           .itemDesc {
             margin-left: 20px;
