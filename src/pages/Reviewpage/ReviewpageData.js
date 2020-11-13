@@ -1,6 +1,6 @@
 const ReviewData = {
   STARTABLE: {
-    "SHAMPOO & CONDITIONER": [
+    SHAMPOOCONDITIONER: [
       { stars: "5 stars", cnt: 52219, total: 63228, starRating: 3.1 },
       { stars: "4 stars", cnt: 5143, total: 63228 },
       { stars: "3 stars", cnt: 2068, total: 63228 },
@@ -8,7 +8,7 @@ const ReviewData = {
       { stars: "1 stars", cnt: 2096, total: 63228 },
     ],
 
-    "PURPLE SHAMPOO": [
+    HAIRMASK: [
       { stars: "5 stars", cnt: 52219, total: 63228, starRating: 4.5 },
       { stars: "4 stars", cnt: 5143, total: 63228 },
       { stars: "3 stars", cnt: 2068, total: 63228 },
@@ -16,14 +16,14 @@ const ReviewData = {
       { stars: "1 stars", cnt: 2096, total: 63228 },
     ],
 
-    "LEAVE-IN": [
+    LEAVEIN: [
       { stars: "5 stars", cnt: 152, total: 3265, starRating: 2.5 },
       { stars: "4 stars", cnt: 341, total: 3265 },
       { stars: "3 stars", cnt: 210, total: 3265 },
       { stars: "2 stars", cnt: 126, total: 3265 },
       { stars: "1 stars", cnt: 2436, total: 3265 },
     ],
-    "HAIR MASK": [
+    HAIRSERUM: [
       { stars: "5 stars", cnt: 2468, total: 3152, starRating: 4.9 },
       { stars: "4 stars", cnt: 319, total: 3152 },
       { stars: "3 stars", cnt: 150, total: 3152 },
@@ -174,23 +174,23 @@ const ReviewData = {
   FILTER: [
     {
       id: 0,
-      key: "Hair Type",
+      key: "hairtype",
       icon: "▾",
-      items: ["All", "Coily", "Curly", "Straight", "Wavy"],
+      items: ["wavy", "curly", "coily"],
       toggle: false,
     },
     {
       id: 1,
-      key: "Hair Structure",
+      key: "hairstructure",
       icon: "▾",
-      items: ["All", "Coarse", "Fine", "Medium"],
+      items: ["fine", "medium", "coarse"],
       toggle: false,
     },
     {
       id: 2,
-      key: "Scalp Moisture",
+      key: "scalpmoisture",
       icon: "▾",
-      items: ["All", "Dry", "Normal", "Oily"],
+      items: ["dry", "normal", "oily"],
       toggle: false,
     },
     {

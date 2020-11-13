@@ -1,6 +1,6 @@
 .Reviewpage {
   margin-top: 100px;
-
+  margin-left: 10px;
   .productToggleContainer {
     text-align: center;
     position: relative;
@@ -164,9 +164,9 @@
           }
 
           .starBar {
+            margin-right: 10px;
             height: 24px;
             border: 1px solid #97d3c7;
-            margin-right: 10px;
             min-width: 200px;
 
             .starBarFilled {
@@ -178,11 +178,8 @@
           }
 
           .count {
-            color: gray;
-            margin-top: 5px;
-            text-align: center;
             font-size: 13px;
-            padding-left: 5px 0 0 10px;
+            padding-left: 5px 0 0 7px;
             font-style: normal;
             font-weight: 500;
           }
@@ -295,7 +292,7 @@
                 font-size: 13px;
                 color: grey;
                 height: 35px;
-                padding-top: 8px 0 0 20px;
+                padding: 8px 0 0 20px;
                 margin-left: 0;
 
                 :first-child {
