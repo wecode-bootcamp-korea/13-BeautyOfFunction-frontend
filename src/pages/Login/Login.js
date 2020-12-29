@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { SJ_URL } from "../../config";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import styled from "styled-components";
@@ -10,7 +9,6 @@ import { YJ_URL } from "../../config";
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const handleSocialLogiIn = (e) => {
     e.preventDefault();
     window.Kakao.Auth.login({
@@ -23,8 +21,11 @@ const Login = (props) => {
         })
           .then((res) => res.json())
           .then((res) => {
-            console.log("token", res);
-            localStorage.setItem("Kakao_token", res.Authorization);
+            // console.log(res.access_token);
+            console.log("Social", res);
+            localStorage.setItem("access_token", res.Authorization);
+          })
+          .then(() => {
             alert("Successfully logged in!");
             props.history.push("/Mypage");
           });
@@ -35,14 +36,12 @@ const Login = (props) => {
       },
     });
   };
-
   function handleInputEmail(e) {
     setEmail(e.target.value);
   }
   function handleInputPassword(e) {
     setPassword(e.target.value);
   }
-
   const isLogin = () => {
     fetch(`${YJ_URL}/account/login`, {
       method: "POST",
@@ -53,29 +52,23 @@ const Login = (props) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        if (res.Message === "Success") {
-          localStorage.setItem("access_token", res["Authorization"]);
-          alert("Successfully logged in!");
-          props.history.push("/Mypage");
-        }
+        console.log(res);
+        localStorage.setItem("access_token", res["Authorization"]);
+        alert("Successfully logged in!");
+        props.history.push("/Mypage");
       });
   };
-
   // eslint-disable-next-line prettier/prettier
   const { register, handleSubmit, errors } = useForm();
-
   const onSubmit = (values) => {
     console.log(values);
   };
-
   return (
     <>
       <Nav />
       <Wrapper>
         <Title>log in</Title>
-
         <KakaoBtn onClick={handleSocialLogiIn}>LOG IN USING KAKAO</KakaoBtn>
-
         <BorderLine>
           <BetweenLine>OR</BetweenLine>
         </BorderLine>
@@ -96,9 +89,7 @@ const Login = (props) => {
               })}
             />
           </InputBox>
-
           {errors.email && <Required> {errors.email.message}</Required>}
-
           <InputBox>
             <PwBox
               autoComplete="off"
@@ -116,7 +107,6 @@ const Login = (props) => {
             />
           </InputBox>
           {errors.password && <Required>{errors.password.message} </Required>}
-
           <RecaptchaNote>
             This site is protected by reCAPTCHA and the Google
             <Policy> Privacy Policy </Policy> and
@@ -136,18 +126,15 @@ const Login = (props) => {
     </>
   );
 };
-
 const Wrapper = styled.div`
   width: 480px;
   margin: 100px auto;
 `;
-
 const Title = styled.h1`
   font-size: 45px;
   font-weight: 400;
   text-align: center;
 `;
-
 const KakaoBtn = styled.button`
   width: 480px;
   height: 46px;
@@ -165,11 +152,9 @@ const KakaoBtn = styled.button`
   font-family: "Freight";
   letter-spacing: 2.5px;
 `;
-
 const BorderLine = styled.div`
   margin: 40px 0;
   position: relative;
-
   ::before {
     left: 0;
     width: 44%;
@@ -187,7 +172,6 @@ const BorderLine = styled.div`
     top: 0.4rem;
   }
 `;
-
 const BetweenLine = styled.span`
   display: block;
   text-align: center;
@@ -196,11 +180,9 @@ const BetweenLine = styled.span`
   font-family: "Freight";
   letter-spacing: 2.5px;
 `;
-
 const InputBox = styled.div`
   margin-top: 20px;
 `;
-
 const EmailBox = styled.input`
   width: 480px;
   height: 46px;
@@ -209,17 +191,14 @@ const EmailBox = styled.input`
   border: 1px solid #c1cac8;
   background-color: #fafafa;
   border-radius: 2px;
-
   ::placeholder {
     color: #a5adab;
   }
-
   :focus {
     outline: 1px solid transparent;
     border-color: #8ce2d0;
   }
 `;
-
 const PwBox = styled.input`
   width: 480px;
   height: 46px;
@@ -228,7 +207,6 @@ const PwBox = styled.input`
   border: 1px solid #c1cac8;
   background-color: #fafafa;
   border-radius: 2px;
-
   ::placeholder {
     color: #a5adab;
   }
@@ -237,24 +215,20 @@ const PwBox = styled.input`
     border-color: #8ce2d0;
   }
 `;
-
 const Required = styled.p`
   font-size: 12px;
   color: #d91022;
   padding-top: 7px;
 `;
-
 const RecaptchaNote = styled.p`
   color: #a5adab;
   font-family: "Freight";
   font-size: 12px;
   padding-top: 1rem;
 `;
-
 const Policy = styled.span`
   color: #2fa79b;
 `;
-
 const Button = styled.button`
   width: 480px;
   height: 46px;
@@ -265,7 +239,6 @@ const Button = styled.button`
   border-radius: 3px;
   letter-spacing: 2.5px;
 `;
-
 const ForgetPw = styled.p`
   text-align: center;
   font-size: 13px;
@@ -274,7 +247,6 @@ const ForgetPw = styled.p`
   color: #2fa79b;
   margin-top: 25px;
 `;
-
 const CreateAccount = styled.p`
   text-align: center;
   font-size: 13px;
@@ -283,9 +255,7 @@ const CreateAccount = styled.p`
   color: #4c5150;
   margin-top: 25px;
 `;
-
 const CreateOne = styled(Link)`
   color: #2fa79b;
 `;
-
 export default Login;

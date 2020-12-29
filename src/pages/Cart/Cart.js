@@ -1,20 +1,18 @@
 import React, { Component } from "react";
-import "./Cart.scss";
-import styled, { keyframes } from "styled-components";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
+import "./Cart.scss";
+import styled, { keyframes } from "styled-components";
 
 class Cart extends Component {
   constructor() {
     super();
     this.state = { toggle: false };
   }
-
   handleToggle = () => {
     this.setState({ toggle: !this.state.toggle });
     console.log(this.state.toggle);
   };
-
   render() {
     return (
       <>
@@ -24,7 +22,7 @@ class Cart extends Component {
             <div className="summary">
               <div className="formulaSummary">
                 <h2>
-                  <b style={{ color: "#97d3c7" }}>jiyoung</b> 's unique formula
+                  <b style={{ color: "#97d3c7" }}>wecode</b> 's unique formula
                   is ready to be created!
                 </h2>
                 <span>
@@ -46,13 +44,7 @@ class Cart extends Component {
               <div className="cartContainer">
                 <h2>order Summary</h2>
                 <div className="cartItemContainer">
-                  <div
-                    style={{
-                      width: "150px",
-                      height: "100px",
-                      backgroundColor: "lightblue",
-                    }}
-                  ></div>
+                  <img src="../Images/cartImage.png" />
                   <div className="productDescription">
                     <h4 style={{ fontWeight: 400, fontSize: "14px" }}>
                       16oz Shampoo & 16oz Conditioner
@@ -91,31 +83,32 @@ class Cart extends Component {
                 </div>
                 <div className="promotion"> +apply promo code</div>
               </div>
-              <div className="promotion"> +apply promo code</div>
-            </div>
-            <div className="addItems">
-              <div className="Item">
-                <img classNamge="Itemimg" src="../Images/pink.png" />
-                <div className="itemDesc">
-                  <div>
-                    take the skin quiz & get your <br />
-                    customized skin regimen!
+              <div className="addItems">
+                <div className="Item">
+                  <img classNamge="Itemimg" src="../Images/pink.png" />
+                  <div className="itemDesc">
+                    <div>
+                      take the skin quiz & get your <br />
+                      customized skin regimen!
+                    </div>
+                    <div className="customizeBtn">CUSTOMIZE</div>
                   </div>
                 </div>
-              </div>
-              <div className="Item">
-                <img className="Itemimg" src="../Images/blue.png" />
-                <div className="itemDesc">
-                  <div>7.5oz hair mask</div>
-                  <div className="colorPicker">
-                    <div style={{ backgroundColor: "#C5DAE7" }}></div>
-                    <div style={{ backgroundColor: "#E9CBCC" }}></div>
-                    <div style={{ backgroundColor: "#F0CDA5" }}></div>
-                    <div style={{ backgroundColor: "#CDC8DF" }}></div>
-                    <div style={{ backgroundColor: "#EDE9E6" }}></div>
-                    <div style={{ backgroundColor: "#B8E8E6" }}></div>
-                    <div style={{ backgroundColor: "#D6E1CD" }}></div>
-                    <div style={{ backgroundColor: "#F7EECC" }}></div>
+                <div className="Item">
+                  <img className="Itemimg" src="../Images/blue.png" />
+                  <div className="itemDesc">
+                    <div>7.5oz hair mask</div>
+                    <div className="colorPicker">
+                      <div style={{ backgroundColor: "#C5DAE7" }}></div>
+                      <div style={{ backgroundColor: "#E9CBCC" }}></div>
+                      <div style={{ backgroundColor: "#F0CDA5" }}></div>
+                      <div style={{ backgroundColor: "#CDC8DF" }}></div>
+                      <div style={{ backgroundColor: "#EDE9E6" }}></div>
+                      <div style={{ backgroundColor: "#B8E8E6" }}></div>
+                      <div style={{ backgroundColor: "#D6E1CD" }}></div>
+                      <div style={{ backgroundColor: "#F7EECC" }}></div>
+                    </div>
+                    <div className="customizeBtn"> $19.99 | ADD </div>
                   </div>
                 </div>
               </div>
@@ -146,30 +139,8 @@ class Cart extends Component {
               <div
                 onClick={() => this.handleToggle}
                 className="hiddenFrequency"
-              >
-                <div>every month</div>
-                <div>every 3 months</div>
-                <div>just once</div>
-              </div>
-              <span
-                className="updateFrequency"
-                onClick={() => this.handleToggle()}
-              >
-                update Frequency
-              </span>
+              ></div>
             </div>
-            <div className="subscriptionNotice">
-              Manage your subscription from the account page (remove items,
-              cancel, or update your profile).
-            </div>
-            <div className="frequencyContainer">
-              <span>ships every 3 months</span>
-              <span className="updateFrequency">update Frequency</span>
-            </div>
-            <div
-              onClick={() => this.handleToggle}
-              className="hiddenFrequency"
-            ></div>
           </div>
         </div>
         <Footer />
@@ -177,17 +148,14 @@ class Cart extends Component {
     );
   }
 }
-
 // const Visible = keyframes`from {height : 0px;} to {
 //   height : 50px;}`;
-
 const Toggleopen = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 20px;
   overflow: hidden;
   transition: height 0.5s;
-
   .btn {
     width: 130px;
     font-size: 10px;
@@ -198,22 +166,18 @@ const Toggleopen = styled.div`
     padding-top: 6px;
     border: 1px solid lightgray;
     border-radius: 5px;
-
     &:hover {
       background-color: #f0f8f7;
     }
-
     span {
       opacity: 1;
       transition: opacity 2s;
     }
   }
-
   .btn2 {
     transition: height 0.5s;
     height: 0px;
     font-size: 10px;
   }
 `;
-
 export default Cart;
