@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { QuizContainer } from "../Quiz";
 import { QuizButton, SuperScript, Title, AnswerArea } from "./QuizFirstPage";
 import { themeColor } from "./subComponent/theme";
+import Nav from "../../../components/Nav/Nav";
+import Footer from "../../../components/Footer/Footer";
+import { YJ_URL } from "../../../config";
 
 const QuizSecondPage = () => {
   const [choice, setChoice] = useState([]);
@@ -31,7 +34,7 @@ const QuizSecondPage = () => {
   console.log(purpleSelected);
 
   useEffect(() => {
-    fetch("http://10.58.7.186:8000/quiz/hair-goals")
+    fetch(`${YJ_URL}/quiz/hair-goals`)
       .then((response) => response.json())
       .then((data) => {
         setChoice(data.hair_goals);
@@ -40,63 +43,67 @@ const QuizSecondPage = () => {
   }, []);
 
   return (
-    <QuizContainer>
-      <SuperScript>
-        <div>
-          HAIR QUIZ
-          <sup>2/4</sup>
-        </div>
-      </SuperScript>
-      <Title>select up to 5 hair goals</Title>
-      <QuizSelector>
-        {choice?.map((choice, idx) => {
-          return (
-            <>
-              {choice.id < 18 && (
-                <QuizSelectorButton
-                  idx={idx}
-                  key={choice.id}
-                  userGoal={userGoal}
-                  onClick={() => {
-                    getHairGoalData(idx);
-                  }}
-                  isSelected={userGoal.includes(idx)}
-                >
-                  {choice.goal}
-                </QuizSelectorButton>
-              )}
-              {choice.id === 18 && (
-                <QuizSelectorButtonPurple
-                  purpleSelected={purpleSelected}
-                  onClick={() => {
-                    getPurpleData();
-                  }}
-                >
-                  reduce brassiness
-                </QuizSelectorButtonPurple>
-              )}
-            </>
-          );
-        })}
-      </QuizSelector>
-      <LabelSection>
-        <input type="checkbox" className="booleanCheck" />
-        <label>
-          I'd like a silicone-free formula for my shampoo + conditioner.
-        </label>
-      </LabelSection>
-      <AnswerArea>
-        <div>
-          <Link to="/Quiz">
-            <PreviousButton>PREVIOUS</PreviousButton>
-          </Link>
-          <Link to="/Quiz/thirdPage">
-            <QuizButton>NEXT</QuizButton>
-          </Link>
-        </div>
-        <p>over 52,000 five-star reviews!!!</p>
-      </AnswerArea>
-    </QuizContainer>
+    <>
+      <Nav />
+      <QuizContainer>
+        <SuperScript>
+          <div>
+            HAIR QUIZ
+            <sup>2/4</sup>
+          </div>
+        </SuperScript>
+        <Title>select up to 5 hair goals</Title>
+        <QuizSelector>
+          {choice?.map((choice, idx) => {
+            return (
+              <>
+                {choice.id < 18 && (
+                  <QuizSelectorButton
+                    idx={idx}
+                    key={choice.id}
+                    userGoal={userGoal}
+                    onClick={() => {
+                      getHairGoalData(idx);
+                    }}
+                    isSelected={userGoal.includes(idx)}
+                  >
+                    {choice.goal}
+                  </QuizSelectorButton>
+                )}
+                {choice.id === 18 && (
+                  <QuizSelectorButtonPurple
+                    purpleSelected={purpleSelected}
+                    onClick={() => {
+                      getPurpleData();
+                    }}
+                  >
+                    reduce brassiness
+                  </QuizSelectorButtonPurple>
+                )}
+              </>
+            );
+          })}
+        </QuizSelector>
+        <LabelSection>
+          <input type="checkbox" className="booleanCheck" />
+          <label>
+            I'd like a silicone-free formula for my shampoo + conditioner.
+          </label>
+        </LabelSection>
+        <AnswerArea>
+          <div>
+            <Link to="/Quiz">
+              <PreviousButton>PREVIOUS</PreviousButton>
+            </Link>
+            <Link to="/thirdPage">
+              <QuizButton>NEXT</QuizButton>
+            </Link>
+          </div>
+          <p>over 52,000 five-star reviews!!!</p>
+        </AnswerArea>
+      </QuizContainer>
+      <Footer />
+    </>
   );
 };
 
@@ -128,9 +135,9 @@ const QuizSelectorButtonPurple = styled.button`
   padding: 10px;
   border: 1px solid #c1cac8;
   color: ${(props) =>
-    props.purpleSelected ? `${themeColor.whiteColor}` : "4C5150"};
+    props.purpleSelected ? "4C5150" : `${themeColor.whiteColor}`};
   background-color: ${(props) =>
-    props.purpleSelected ? "#52469a" : `${themeColor.whiteColor}`};
+    props.purpleSelected ? `${themeColor.whiteColor}` : "#52469a"};
   font-size: 16px;
   cursor: pointer;
 `;

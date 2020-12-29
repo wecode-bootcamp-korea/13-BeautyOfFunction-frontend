@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer";
 import theme from "./Components/theme";
 import { ThemeProvider } from "styled-components";
 import StyledSectionComponent from "./Components/StyledSectionComponent";
@@ -7,14 +9,16 @@ import IngredientsComponent from "./Components/IngredientsComponent";
 import RecommendedComponent from "./Components/RecommendedComponent";
 import GreatforComponent from "./Components/GreatforComponent";
 import DetailPageReviewSectionComponent from "./Components/DetailPageReviewSectionComponent";
+import { YJ_URL } from "../../config";
 
-const Detailpage = () => {
+const Detailpage = (props) => {
   const [productDetailData, setProductDetailData] = useState([]);
   const [productReviewData, setProductReviewData] = useState([]);
   const [detailLogo, setDetailLogo] = useState([]);
 
   useEffect(() => {
-    fetch("http://10.58.7.106:8000/products/1")
+    // fetch("http://10.58.7.106:8000/products/1")
+    fetch(`${YJ_URL}/products/${props.match.params.id}`)
       .then((response) => response.json())
       .then((data) => {
         setProductDetailData(data.detail_list);
@@ -45,29 +49,33 @@ const Detailpage = () => {
   console.log(productReviewData);
 
   return (
-    <ThemeProvider theme={theme}>
-      <StyledSectionComponent
-        image={image}
-        name={name}
-        description={description}
-      />
-      <BadgesComponent detailLogo={detailLogo} />
-      <section>
-        <IngredientsComponent
-          ingredients={ingredients}
-          ingredients_url={ingredients_url}
+    <>
+      <Nav />
+      <ThemeProvider theme={theme}>
+        <StyledSectionComponent
+          image={image}
+          name={name}
+          description={description}
         />
-        <RecommendedComponent
-          recommended={recommended}
-          recommended_url={recommended_url}
-        />
-        <GreatforComponent
-          great_for={great_for}
-          great_for_url={great_for_url}
-        />
-      </section>
-      <DetailPageReviewSectionComponent review_list={productReviewData} />
-    </ThemeProvider>
+        <BadgesComponent detailLogo={detailLogo} />
+        <section>
+          <IngredientsComponent
+            ingredients={ingredients}
+            ingredients_url={ingredients_url}
+          />
+          <RecommendedComponent
+            recommended={recommended}
+            recommended_url={recommended_url}
+          />
+          <GreatforComponent
+            great_for={great_for}
+            great_for_url={great_for_url}
+          />
+        </section>
+        <DetailPageReviewSectionComponent review_list={productReviewData} />
+      </ThemeProvider>
+      <Footer />
+    </>
   );
 };
 

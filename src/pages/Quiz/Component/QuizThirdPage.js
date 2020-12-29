@@ -5,6 +5,9 @@ import { QuizContainer } from "../Quiz";
 import { QuizButton, SuperScript, Title, AnswerArea } from "./QuizFirstPage";
 import { PreviousButton } from "./QuizSecondPage";
 import { themeColor, flexCenter } from "./subComponent/theme";
+import Nav from "../../../components/Nav/Nav";
+import Footer from "../../../components/Footer/Footer";
+import { YJ_URL } from "../../../config";
 
 const QuizThirdPage = () => {
   const [fragrance, setFragrance] = useState([]);
@@ -36,13 +39,18 @@ const QuizThirdPage = () => {
     localStorage.setItem("shampoo_color", idx + 1);
   };
 
+  const getShampoo_purple = () => {
+    setNameImgIdx(9);
+    localStorage.setItem("shampoo_color", 9);
+  };
+
   const getConditioner_color = (idx) => {
     setNameConditionerImgIdx(idx);
     localStorage.setItem("conditioner_color", idx + 1);
   };
 
   useEffect(() => {
-    fetch("http://10.58.7.186:8000/quiz/appearance-and-fragrance", {
+    fetch(`${YJ_URL}/quiz/appearance-and-fragrance`, {
       method: "POST",
       headers: {},
       body: JSON.stringify({
@@ -59,130 +67,155 @@ const QuizThirdPage = () => {
       });
   }, []);
 
+  const purpleKey = JSON.parse(localStorage.getItem("purple"));
+
   return (
-    <QuizContainer>
-      <SuperScript>
-        <div>
-          HAIR QUIZ
-          <sup>3/4</sup>
-        </div>
-      </SuperScript>
-      <Title>customize your formula</Title>
-      <FragranceQuiz>
-        <h3>FRAGRANCE</h3>
-        {fragrance?.map((fragrance, idx) => {
-          return (
-            <FragranceButton
-              key={idx}
-              fragrance={fragrance.fragrance}
-              selectedFragrance={selectedFragrance}
-              onClick={() => getFragranceData(fragrance.fragrance)}
-            >
-              {fragrance.fragrance}
-              <img
-                className="buttonImg"
-                src={fragrance.image}
-                alt="이미지입니다."
-              />
-            </FragranceButton>
-          );
-        })}
-      </FragranceQuiz>
-      <img
-        className="formula"
-        src="https://www.functionofbeauty.com/images/peach.svg"
-        alt="formula"
-      />
-      <FragranceStrength>
-        <h3>FRAGRANCE STRENGTH</h3>
-        <div className="FragranceStrengthButton">
-          {strength?.map((strength, idx) => {
+    <>
+      <Nav />
+      <QuizContainer>
+        <SuperScript>
+          <div>
+            HAIR QUIZ
+            <sup>3/4</sup>
+          </div>
+        </SuperScript>
+        <Title>customize your formula</Title>
+        <FragranceQuiz>
+          <h3>FRAGRANCE</h3>
+          {fragrance?.map((fragrance, idx) => {
             return (
-              <StrengthButton
+              <FragranceButton
                 key={idx}
-                strength={strength.strength}
-                selectedStrength={selectedStrength}
-                onClick={() => getStrengthData(strength.strength)}
+                fragrance={fragrance.fragrance}
+                selectedFragrance={selectedFragrance}
+                onClick={() => getFragranceData(fragrance.fragrance)}
               >
-                {strength.strength}
-              </StrengthButton>
+                {fragrance.fragrance}
+                <img
+                  className="buttonImg"
+                  src={fragrance.image}
+                  alt="이미지입니다."
+                />
+              </FragranceButton>
             );
           })}
-        </div>
-      </FragranceStrength>
-
-      <FormulaNameSection>
-        <h3>F O R M U L A &nbsp; N A M E (P R I N T E D O N B O T T L E)</h3>
-        <input
-          type="text"
-          placeholder="first name or nickname"
-          onChange={(e) => setInputState(e.currentTarget.value)}
-          onKeyPress={() => getInnerNameData()}
+        </FragranceQuiz>
+        <img
+          className="formula"
+          src="https://www.functionofbeauty.com/images/peach.svg"
+          alt="formula"
         />
-        <p>pleas press Enter After input value</p>
-      </FormulaNameSection>
-
-      <section>
-        <ShampooColorComponent>
-          <h3>S H A M P O O &nbsp; C O L O R</h3>
-
-          <img
-            className="ShampooColorImg"
-            src={nameImg[nameImgIdx]?.color_image}
-            alt="Shampoo Color"
-          />
-          <div className="innerName">{inputState}</div>
-          <div>
-            {nameImg?.map((nameImg, idx) => {
+        <FragranceStrength>
+          <h3>FRAGRANCE STRENGTH</h3>
+          <div className="FragranceStrengthButton">
+            {strength?.map((strength, idx) => {
               return (
-                <ShampooColorButton
+                <StrengthButton
                   key={idx}
-                  nameImgColor={nameImg.color_code}
-                  onClick={() => getShampoo_color(idx)}
-                />
+                  strength={strength.strength}
+                  selectedStrength={selectedStrength}
+                  onClick={() => getStrengthData(strength.strength)}
+                >
+                  {strength.strength}
+                </StrengthButton>
               );
             })}
           </div>
-        </ShampooColorComponent>
+        </FragranceStrength>
 
-        <ShampooColorComponent>
-          <h3>C O N D I T I O N E R &nbsp; C O L O R</h3>
-          <img
-            className="ShampooColorImg"
-            src={nameConditionerImg[nameConditionerImgIdx]?.color_image}
-            alt="Shampoo Color"
+        <FormulaNameSection>
+          <h3>F O R M U L A &nbsp; N A M E (P R I N T E D O N B O T T L E)</h3>
+          <input
+            type="text"
+            placeholder="first name or nickname"
+            onChange={(e) => setInputState(e.currentTarget.value)}
+            onKeyPress={() => getInnerNameData()}
           />
-          <div className="innerName">{inputState}</div>
+          <p>pleas press Enter After input value</p>
+        </FormulaNameSection>
+
+        <section>
+          <ShampooColorComponent>
+            <h3>S H A M P O O &nbsp; C O L O R</h3>
+            {!purpleKey && (
+              <img
+                className="ShampooColorImg"
+                src={nameImg[nameImgIdx]?.color_image}
+                alt="Shampoo Color"
+              />
+            )}
+            {purpleKey && (
+              <img
+                className="ShampooColorImg"
+                src={nameImg[0]?.color_image}
+                alt="Shampoo Color"
+              />
+            )}
+            <div className="innerName">{inputState}</div>
+            <div>
+              {nameImg?.map((nameImg, idx) => {
+                return (
+                  <>
+                    {!purpleKey && (
+                      <ShampooColorButton
+                        key={idx}
+                        nameImgColor={nameImg.color_code}
+                        onClick={() => getShampoo_color(idx)}
+                      />
+                    )}
+                    {purpleKey && (
+                      <ShampooColorButton
+                        key={idx}
+                        nameImgColor={nameImg.color_code}
+                        onClick={() => getShampoo_purple()}
+                      />
+                    )}
+                  </>
+                );
+              })}
+            </div>
+          </ShampooColorComponent>
+
+          <ShampooColorComponent>
+            <h3>C O N D I T I O N E R &nbsp; C O L O R</h3>
+            <img
+              className="ShampooColorImg"
+              src={nameConditionerImg[nameConditionerImgIdx]?.color_image}
+              alt="Shampoo Color"
+            />
+            <div className="innerName">{inputState}</div>
+            <div>
+              {nameConditionerImg?.map((nameImg, idx) => {
+                return (
+                  <ShampooColorButton
+                    key={idx}
+                    nameImgColor={nameImg.color_code}
+                    onClick={() => getConditioner_color(idx)}
+                  />
+                );
+              })}
+            </div>
+            <p>
+              *note: Slight variations in color may occur due to your formula’s
+              unique blend of natural ingredients. That means, like you, each
+              bottle is one-of-a-kind!
+            </p>
+          </ShampooColorComponent>
+        </section>
+        <AnswerArea>
           <div>
-            {nameConditionerImg?.map((nameImg, idx) => {
-              return (
-                <ShampooColorButton
-                  key={idx}
-                  nameImgColor={nameImg.color_code}
-                  onClick={() => getConditioner_color(idx)}
-                />
-              );
-            })}
+            <Link to="/secondPage">
+              <PreviousButton>PREVIOUS</PreviousButton>
+            </Link>
+            <input type="hidden" className="answer" value="" id="goal" />
+            <Link to="/fourthPage">
+              <QuizButton>NEXT</QuizButton>
+            </Link>
           </div>
-          <p>
-            *note: Slight variations in color may occur due to your formula’s
-            unique blend of natural ingredients. That means, like you, each
-            bottle is one-of-a-kind!
-          </p>
-        </ShampooColorComponent>
-      </section>
-      <AnswerArea>
-        <div>
-          <Link to="/Quiz/secondPage">
-            <PreviousButton>PREVIOUS</PreviousButton>
-          </Link>
-          <input type="hidden" className="answer" value="" id="goal" />
-          <Link to="/Quiz/fourthPage">
-            <QuizButton>NEXT</QuizButton>
-          </Link>
-        </div>
-      </AnswerArea>
-    </QuizContainer>
+        </AnswerArea>
+      </QuizContainer>
+      <Footer />
+    </>
   );
 };
 

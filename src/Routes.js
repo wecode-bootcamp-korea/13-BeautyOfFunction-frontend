@@ -24,21 +24,21 @@ class Routes extends Component {
     return (
       <Router>
         <Switch>
+          <Route exact path="/Nav" component={Nav} />
+          <Route exact path="/" component={MainPage} />
           <Route exact path="/About" component={About} />
           <Route exact path="/Cart" component={Cart} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/Signup" component={Signup} />
-          {/* <Route exact path="/MainPage" component={MainPage} /> */}
           <Route exact path="/Mypage" component={Mypage} />
           <Route exact path="/MainPage" component={MainPage} />
           <Route exact path="/detail" component={DetailPage} />
+          <Route exact path="/detail:id" component={DetailPage} />
           <Route exact path="/Quiz" component={Quiz} />
-          <Route exact path="/Quiz/secondPage" component={QuizSecondPage} />
-          <Route exact path="/Quiz/thirdPage" component={QuizThirdPage} />
-          <Route exact path="/Quiz/fourthPage" component={QuizFourthPage} />
+          <Route exact path="/secondPage" component={QuizSecondPage} />
+          <Route exact path="/thirdPage" component={QuizThirdPage} />
+          <Route exact path="/fourthPage" component={QuizFourthPage} />
           <Route exact path="/Reviewpage" component={Reviewpage} />
-          <Route exact path="/Reviewpage" component={Reviewpage} />
-          <Route exact path="/Nav" component={Nav} />
           <Route exact path="/Footer" component={Footer} />
         </Switch>
       </Router>

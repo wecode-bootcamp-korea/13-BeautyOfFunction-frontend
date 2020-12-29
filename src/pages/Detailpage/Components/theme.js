@@ -9,6 +9,7 @@ export const flexCenter = css`
 export const square600 = css`
   width: 600px;
   height: 600px;
+  padding-top: 50px;
 `;
 
 export const themeColor = {
