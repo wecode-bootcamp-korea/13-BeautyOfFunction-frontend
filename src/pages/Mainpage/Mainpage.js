@@ -32,9 +32,7 @@ class Mainpage extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         this.setState({ listData: res.product_list });
-        console.log("체크>>>>>", res.product_list);
       });
 
     AOS.init({

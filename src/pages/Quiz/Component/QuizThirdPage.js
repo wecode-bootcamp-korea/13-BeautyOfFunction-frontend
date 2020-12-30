@@ -63,7 +63,6 @@ const QuizThirdPage = () => {
         setStrength(data.fragrance_options[0].strengths);
         setNameImg(data.shampoo_colors);
         setNameConditionerImg(data.conditioner_colors);
-        console.log("체크>>>>>", data.shampoo_colors);
       });
   }, []);
 

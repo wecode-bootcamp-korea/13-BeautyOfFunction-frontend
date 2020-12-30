@@ -31,14 +31,11 @@ const QuizSecondPage = () => {
     localStorage.setItem("purple", purpleSelected);
   };
 
-  console.log(purpleSelected);
-
   useEffect(() => {
     fetch(`${YJ_URL}/quiz/hair-goals`)
       .then((response) => response.json())
       .then((data) => {
         setChoice(data.hair_goals);
-        console.log(data.hair_goals);
       });
   }, []);
 

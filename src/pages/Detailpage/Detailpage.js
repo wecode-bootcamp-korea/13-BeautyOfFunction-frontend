@@ -17,7 +17,6 @@ const Detailpage = (props) => {
   const [detailLogo, setDetailLogo] = useState([]);
 
   useEffect(() => {
-    // fetch("http://10.58.7.106:8000/products/1")
     fetch(`${YJ_URL}/products/${props.match.params.id}`)
       .then((response) => response.json())
       .then((data) => {

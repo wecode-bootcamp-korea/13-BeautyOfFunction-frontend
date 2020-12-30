@@ -46,7 +46,6 @@ class Reviewpage extends Component {
             return res.json();
           })
           .then((res) => {
-            console.log("됐다!", res);
             this.setState({
               content: res.review_ratings,
               review_list: res.reviews,
@@ -67,7 +66,6 @@ class Reviewpage extends Component {
             return res.json();
           })
           .then((res) => {
-            console.log("됐다!", res);
             this.setState({
               content: res.review_ratings,
               review_list: res.reviews,
@@ -88,7 +86,6 @@ class Reviewpage extends Component {
             return res.json();
           })
           .then((res) => {
-            console.log("됐다!", res);
             this.setState({
               content: res.review_ratings,
               review_list: res.reviews,
@@ -106,7 +103,6 @@ class Reviewpage extends Component {
         return res.json();
       })
       .then((res) => {
-        console.log("됐다!", res);
         this.setState({
           content: res.review_ratings,
           review_list: res.reviews,
@@ -126,7 +122,6 @@ class Reviewpage extends Component {
         return res.json();
       })
       .then((res) => {
-        console.log("됐다!", res);
         this.setState({
           content: res.review_ratings,
           review_list: res.reviews,
@@ -139,14 +134,12 @@ class Reviewpage extends Component {
   };
 
   toggleActive = (el, idx) => {
-    console.log("idx", el.id);
     const filter = this.state.filter;
     el.toggle = !el.toggle;
     this.setState({ filter });
   };
 
   render() {
-    console.log("wfeewf", this.state.product_id);
     const starDiv = [];
     const star = <FaStar />;
     let rating = 4;
@@ -156,7 +149,6 @@ class Reviewpage extends Component {
     const { review_list } = this.state;
     const { titleList, list, title, content, filter } = this.state;
     const { hairtype, hairstructure, scalpmoisture } = this.state;
-    console.log("plzplz", hairtype, hairstructure, scalpmoisture);
 
     const {
       total,
@@ -345,7 +337,6 @@ class Reviewpage extends Component {
   }
 }
 
-//Styled Component
 const Opacity = keyframes`from {opacity : 0} to {
   opacity : 1}`;
 

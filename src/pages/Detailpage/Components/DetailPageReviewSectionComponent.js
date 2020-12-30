@@ -14,8 +14,6 @@ const DetailPageReviewSectionComponent = ({ review_list }) => {
     slidesToScroll: 1,
   };
 
-  console.log("체크 >>>>>", review_list);
-
   return (
     <DetailPageReviewSection>
       <DetailpageH1>the people have spoken</DetailpageH1>

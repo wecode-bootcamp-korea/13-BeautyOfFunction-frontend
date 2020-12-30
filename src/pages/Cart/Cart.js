@@ -11,7 +11,6 @@ class Cart extends Component {
   }
   handleToggle = () => {
     this.setState({ toggle: !this.state.toggle });
-    console.log(this.state.toggle);
   };
   render() {
     return (
@@ -148,8 +147,7 @@ class Cart extends Component {
     );
   }
 }
-// const Visible = keyframes`from {height : 0px;} to {
-//   height : 50px;}`;
+
 const Toggleopen = styled.div`
   display: flex;
   justify-content: space-between;

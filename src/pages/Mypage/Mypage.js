@@ -17,9 +17,7 @@ const Mypage = () => {
       },
     })
       .then((res) => res.json())
-      // eslint-disable-next-line prettier/prettier
       .then((res) => {
-        console.log("mypageResponse", res);
         setUsers(res.user_info.email);
         setUserName(res.user_info.name);
         setUserPhoneNumber(res.user_info.phone_number);
@@ -36,7 +34,7 @@ const Mypage = () => {
   const totalList = sList.map((sList, index) => (
     <ScribeList key={index}>{sList}</ScribeList>
   ));
-  // const keyKakao = localStorage.getItem("Kakao_token");
+
   return (
     <>
       <Nav />

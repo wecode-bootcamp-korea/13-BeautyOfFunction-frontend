@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { useState } from "react";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
@@ -26,7 +25,6 @@ const Signup = (props) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log("EE:", res);
         if (res.Message === "ACCOUNT_SUCCESSFULLY_CREATED") {
           alert("Successfully logged in!");
           props.history.push("/Login");

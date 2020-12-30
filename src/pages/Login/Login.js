@@ -21,8 +21,6 @@ const Login = (props) => {
         })
           .then((res) => res.json())
           .then((res) => {
-            // console.log(res.access_token);
-            console.log("Social", res);
             localStorage.setItem("access_token", res.Authorization);
           })
           .then(() => {
@@ -52,17 +50,16 @@ const Login = (props) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         localStorage.setItem("access_token", res["Authorization"]);
         alert("Successfully logged in!");
         props.history.push("/Mypage");
       });
   };
-  // eslint-disable-next-line prettier/prettier
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (values) => {
     console.log(values);
   };
+
   return (
     <>
       <Nav />
